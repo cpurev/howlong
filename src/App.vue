@@ -36,21 +36,19 @@ const menu  = [
   </div>
   <main>
     <div class="wrapper">
-    <section>
-      <div class="intro">
-          <div>
-            <h1>Hi, my name is</h1>
-          </div>
-          <div>
-            <h2>Chuluunbat Purev</h2>
-          </div>
-          <div>
-            <h3> I like computers and the internet</h3>
-          </div>
-          <div>
-            <p>I'm a software developer most versed in Front-end Web Development. Currently, I'm focused on learning new skills such as Mahcine Learning and DevOps </p>
-          </div>
-      </div>
+    <section class="hero">
+        <div>
+          <h1>Hi, my name is</h1>
+        </div>
+        <div>
+          <h2>Chuluunbat Purev</h2>
+        </div>
+        <div>
+          <h3> I like computers and the internet</h3>
+        </div>
+        <div>
+          <p>I'm a software developer most versed in Front-end Web Development. Currently, I'm focused on learning new skills such as Mahcine Learning and DevOps </p>
+        </div>
     </section>
     <section id="profile">
       <div class="profile" >

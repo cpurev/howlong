@@ -1,10 +1,5 @@
 @import './base.css';
 
-body{
-  margin: auto;
-  line-height: 1.3;
-}
-
 p{
   color: var(--text-primary-color);
 }
@@ -19,7 +14,7 @@ header{
   width: 100px;
   position: fixed;
   top: 80px;
-  left: 100px;
+  left: 4%;
   right: auto;
   z-index: 10;
   color: var(--text-primary-color);
@@ -44,7 +39,7 @@ nav{
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  padding: 0 100px;
+  padding: 0 4%;
   width: 100%;
 }
 nav ul{
@@ -64,20 +59,37 @@ nav ul li a{
   text-transform: uppercase;
   text-decoration: none;
 }
-.intro{
-  display: grid;
-  -webkit-box-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
+.hero{
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
   flex-direction: column;
-  place-items: center;
-  align-content: center;
-  padding: 0px;
+  min-height: 100vh;
+  padding: 200px 0;
+  font-size: 1.5em;
 }
+.hero h1{
+  margin: 0 0 30px 4px;
+  color: var(--blue);
+  font-family: var(--font-mono);
+  font-size: clamp(1vw, 2vw, 2rem);
+}
+.hero h2{
+  font-size: clamp(40px, 8vw, 80px);
+  color: var(--cyan);
+  font-weight: 500;
+  line-height: 1.1;
+}
+.hero h3{
+  font-size: clamp(20px, 6vw, 60px);
+  color: var(--blue-dim);
+  line-height: 1.1;
+}
+
 section {
   margin: 0px auto;
-  padding: 100px 0px;
-  max-width: 1000px;
+  padding: 250px 0px;
+  max-width: 920px;
   min-height: 100vh;
 }
 .wrapper {
