@@ -1,45 +1,84 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import Profile from './components/Profile.vue'
+import Projects from './components/Projects.vue'
+import Contact from './components/Contact.vue'
+const menu  = [
+  'profile',
+  'projects',
+  'contact'
+] 
 </script>
 
 <template>
   <header>
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
+    <nav>
+      <p>Chuluunbat Purev</p>
+      <ul>
+        <li v-for="item in menu"><a :href="'#' + item ">{{ item }}</a></li>
+      </ul>
+    </nav>
   </header>
-
+  <div class="left">
+    <ul>
+      <li title="Resume">
+        <a href="#" arua-label="Resume" target="_blank" rel="noreferrer"><font-awesome-icon icon="fa-regular fa-file" /></a>
+      </li>
+      <li title="Email">
+        <a href="mailto:puluunbat@gmail.com" arua-label="Email" target="_blank" rel="noreferrer"><font-awesome-icon icon="fa-regular fa-envelope" /></a>
+      </li>
+      <li title="Linkedin">
+        <a href="https://www.linkedin.com/in/chuluunbat-purev-0909361bb/" arua-label="Linkedin" target="_blank" rel="noreferrer"><font-awesome-icon icon="fa-brands fa-linkedin-in" /></a>
+      </li>
+      <li title="GitHub">
+        <a href="https://github.com/cpurev" arua-label="GitHub" target="_blank" rel="noreferrer"><font-awesome-icon icon="fa-brands fa-github" /></a>
+      </li>
+    </ul>
+  </div>
   <main>
-    <TheWelcome />
+    <div class="wrapper">
+    <section>
+      <div class="intro">
+          <div>
+            <h1>Hi, my name is</h1>
+          </div>
+          <div>
+            <h2>Chuluunbat Purev</h2>
+          </div>
+          <div>
+            <h3> I like computers and the internet</h3>
+          </div>
+          <div>
+            <p>I'm a software developer most versed in Front-end Web Development. Currently, I'm focused on learning new skills such as Mahcine Learning and DevOps </p>
+          </div>
+      </div>
+    </section>
+    <section id="profile">
+      <div class="profile" >
+          <div class="card">
+            <p>Wer sitzt dort so spät, bei Nacht und Wind?</p>
+            <p>Entwickler Clemens, mit einem Pint.</p>
+            <p>Man hört ihn seufzen, ziemlich hart -</p>
+            <p>Sonntag ist's, die Deadline naht</p>
+          </div></div>
+    </section>
+    <section id="projects">
+      <div class="projects" >
+          <div class="card">
+            <p>Wer sitzt dort so spät, bei Nacht und Wind?</p>
+            <p>Entwickler Clemens, mit einem Pint.</p>
+            <p>Man hört ihn seufzen, ziemlich hart -</p>
+            <p>Sonntag ist's, die Deadline naht</p>
+          </div></div>
+    </section>
+    <section id="contact">
+      <div class="contact" >
+          <div class="card">
+            <p>Wer sitzt dort so spät, bei Nacht und Wind?</p>
+            <p>Entwickler Clemens, mit einem Pint.</p>
+            <p>Man hört ihn seufzen, ziemlich hart -</p>
+            <p>Sonntag ist's, die Deadline naht</p>
+          </div></div>
+    </section>
+    </div>
   </main>
 </template>
-
-<style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
-</style>
