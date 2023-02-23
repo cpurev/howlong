@@ -1,14 +1,32 @@
 <script setup>
-import Profile from './components/Profile.vue'
-import Projects from './components/Projects.vue'
-import Contact from './components/Contact.vue'
-const menu  = [
-  'profile',
-  'projects',
-  'contact'
-] 
+  const menu =  [
+    'profile',
+    'projects',
+    'contact'
+  ]
 </script>
-
+<script>
+export default {
+  mounted: function() {
+    this.scrollAnimation();
+  },
+  methods: {
+    scrollAnimation() {
+      gsap.timeline({
+      scrollTrigger: {
+        trigger: ".profile",
+        start: "center center",
+        end: "bottom top",
+        markers: true,
+        scrub: true,
+        pin: true,
+      }
+    })
+    .from(".profile", { opacity: 0 })
+  }
+}
+}
+</script>
 <template>
   <header>
     <nav>
