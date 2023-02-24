@@ -1,4 +1,6 @@
 <script setup>
+import ShakeButton from './components/ShakeButton.vue'
+
   const menu =  [
     'profile',
     'projects',
@@ -15,8 +17,8 @@ export default {
       gsap.timeline({
       scrollTrigger: {
         trigger: ".profile",
-        start: "center center",
-        end: "bottom top",
+        start: "top center",
+        end: "center bottom",
         markers: true,
         scrub: true,
         pin: true,
@@ -33,7 +35,7 @@ export default {
       <p>Chuluunbat Purev</p>
       <ul>
         <li v-for="item in menu"><a :href="'#' + item ">{{ item }}</a></li>
-      </ul>
+      </ul >
     </nav>
   </header>
   <div class="left">
@@ -67,6 +69,7 @@ export default {
         <div>
           <p>I'm a software developer most versed in Front-end Web Development. Currently, I'm focused on learning new skills such as Mahcine Learning and DevOps </p>
         </div>
+        <ShakeButton />
     </section>
     <section id="profile">
       <div class="profile" >
@@ -98,3 +101,15 @@ export default {
     </div>
   </main>
 </template>
+<style>
+.list-enter-active,
+.list-leave-active {
+  transition: all 0.5s ease;
+  transform: translateX(30px);
+}
+.list-enter-from,
+.list-leave-to {
+  opacity: 0;
+  transform: translateX(30px);
+}
+</style>

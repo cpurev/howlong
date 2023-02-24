@@ -66,13 +66,13 @@ nav ul li a{
   flex-direction: column;
   min-height: 100vh;
   padding: 200px 0;
-  font-size: 1.5em;
+  font-size: 1em;
   font-family: var(--font-sans);
 }
 .hero h1{
   margin: 0 0 30px 4px;
   color: var(--blue);
-  font-size: clamp(1vw, 2vw, 2rem);
+  font-size: clamp(0.5vw, 1.5vw, 2rem);
 }
 .hero h2{
   font-size: clamp(40px, 8vw, 80px);
