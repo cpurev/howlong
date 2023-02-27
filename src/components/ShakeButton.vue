@@ -22,7 +22,7 @@ function clickHandler() {
 <template>
   <div>
     <button class="base-btn" @mouseover="clickHandler" :class="{shake : animated}">
-      {{ altText }}
+      {{ text ? text : altText }}
     </button>
   </div>
 </template>
@@ -30,13 +30,14 @@ function clickHandler() {
 <style scoped>
 .base-btn {
   padding: 1rem 3rem;
-  background: #a0f0c0;
+  background: transparent;
   font-size: 1rem;
   border-radius: 3px;
-  box-shadow: 3px 3px #555;
+  border-color: var(--cyan);
+  color: white;
 }
 .base-btn:hover {
-  background: red;
+  background: var(--blue-dim);
 }
 .shake {
   animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;

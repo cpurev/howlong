@@ -69,7 +69,7 @@ export default {
         <div>
           <p>I'm a software developer most versed in Front-end Web Development. Currently, I'm focused on learning new skills such as Mahcine Learning and DevOps </p>
         </div>
-        <ShakeButton />
+        <ShakeButton text="Resume"/>
     </section>
     <section id="profile">
       <div class="profile" >
