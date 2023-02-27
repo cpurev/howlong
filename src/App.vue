@@ -9,24 +9,18 @@ import ShakeButton from './components/ShakeButton.vue'
 </script>
 <script>
 export default {
-  mounted: function() {
-    this.scrollAnimation();
-  },
   methods: {
-    scrollAnimation() {
-      gsap.timeline({
-      scrollTrigger: {
-        trigger: ".profile",
-        start: "top center",
-        end: "center bottom",
-        markers: true,
-        scrub: true,
-        pin: true,
-      }
+    enter(el, done){
+      gsap.from('.profile', {
+        x: 500,
+        scrollTrigger: {
+          trigger: ".profile",
+          start: "top 50%", 
+          toggleActions: "play none none reset",  
+        }
     })
-    .from(".profile", { opacity: 0 })
+    }
   }
-}
 }
 </script>
 <template>
@@ -41,16 +35,16 @@ export default {
   <div class="left">
     <ul>
       <li title="Resume">
-        <a href="#" arua-label="Resume" target="_blank" rel="noreferrer"><font-awesome-icon icon="fa-regular fa-file" /></a>
+        <a href="#" aria-label="Resume" target="_blank" rel="noreferrer"><font-awesome-icon icon="fa-regular fa-file" /></a>
       </li>
       <li title="Email">
-        <a href="mailto:puluunbat@gmail.com" arua-label="Email" target="_blank" rel="noreferrer"><font-awesome-icon icon="fa-regular fa-envelope" /></a>
+        <a href="mailto:puluunbat@gmail.com" aria-label="Email" target="_blank" rel="noreferrer"><font-awesome-icon icon="fa-regular fa-envelope" /></a>
       </li>
       <li title="Linkedin">
-        <a href="https://www.linkedin.com/in/chuluunbat-purev-0909361bb/" arua-label="Linkedin" target="_blank" rel="noreferrer"><font-awesome-icon icon="fa-brands fa-linkedin-in" /></a>
+        <a href="https://www.linkedin.com/in/chuluunbat-purev-0909361bb/" aria-label="Linkedin" target="_blank" rel="noreferrer"><font-awesome-icon icon="fa-brands fa-linkedin-in" /></a>
       </li>
       <li title="GitHub">
-        <a href="https://github.com/cpurev" arua-label="GitHub" target="_blank" rel="noreferrer"><font-awesome-icon icon="fa-brands fa-github" /></a>
+        <a href="https://github.com/cpurev" aria-label="GitHub" target="_blank" rel="noreferrer"><font-awesome-icon icon="fa-brands fa-github" /></a>
       </li>
     </ul>
   </div>
@@ -72,13 +66,16 @@ export default {
         <ShakeButton text="Resume"/>
     </section>
     <section id="profile">
-      <div class="profile" >
-          <div class="card">
-            <p>Wer sitzt dort so spät, bei Nacht und Wind?</p>
-            <p>Entwickler Clemens, mit einem Pint.</p>
-            <p>Man hört ihn seufzen, ziemlich hart -</p>
-            <p>Sonntag ist's, die Deadline naht</p>
-          </div></div>
+      <Transition appear @enter="enter" @after-enter="afterEnter">
+        <div class="profile" >
+            <div class="card">
+              <p>Wer sitzt dort so spät, bei Nacht und Wind?</p>
+              <p>Entwickler Clemens, mit einem Pint.</p>
+              <p>Man hört ihn seufzen, ziemlich hart -</p>
+              <p>Sonntag ist's, die Deadline naht</p>
+            </div>
+        </div>
+      </Transition>
     </section>
     <section id="projects">
       <div class="projects" >
