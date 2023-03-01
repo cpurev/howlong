@@ -34,22 +34,31 @@ header{
   color: var(--text-primary-color);
 } 
 nav{
-  background: var(--background-color-primary);
+  position: fixed;
+  background: var(--background-color-secondary);
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  padding: 0 4%;
   width: 100%;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0 / 6%);
+  transform: translateY(0);
+  transition: transform 200ms linear;
 }
+nav.navHidden {
+  transform: translateY(-100%);
+}
+
 nav ul{
-  float: right;
-  margin-right: 20px;
+  left: 40%;
+  width: 100%;
+  margin: 20px 0;
 }
 nav ul li{
-  display: inline-block;
-  line-height: 80px;
+  display: inline-flex;
   margin: 0 5px;
+  flex-direction: column;
+  align-items: center;
 }
 nav ul li a{
   color: white;
@@ -58,6 +67,15 @@ nav ul li a{
   border-radius: 3px;
   text-transform: uppercase;
   text-decoration: none;
+}
+.line {
+  width: 20px;
+  border-radius: 15px;
+  max-width: 800px;
+  height: 3px;
+  position: relative;
+  display: inline-block;
+  background-color: rgba(255,255,255,1);
 }
 .hero{
   display: flex;
@@ -89,7 +107,6 @@ nav ul li a{
 section {
   margin: 0px auto;
   padding: 250px 0px;
-  max-width: 920px;
   min-height: 100vh;
 }
 .wrapper {
@@ -98,7 +115,6 @@ section {
   align-items: center;
   flex-direction: column;
 }
-
 .card {
   padding: 2rem 4rem;
   height: 200px;
