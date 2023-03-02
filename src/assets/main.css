@@ -4,35 +4,11 @@ p{
   color: var(--text-primary-color);
 }
 header{
-  display: flex;
   position: fixed;
   top: 0px;
   z-index: 10;
   width: 100%;
 }
-.left{
-  width: 100px;
-  position: fixed;
-  top: 80px;
-  left: 4%;
-  right: auto;
-  z-index: 10;
-  color: var(--text-primary-color);
-  font-size: larger;
-}
-.left ul{
-  display: flex;
-  flex-direction: column;
-  margin: 0px;
-  padding: 0px;
-  list-style: none;
-}
-.left ul li{
-  padding: 20px;
-}
-.left ul li a{
-  color: var(--text-primary-color);
-} 
 nav{
   position: fixed;
   background: var(--background-color-secondary);
@@ -41,6 +17,7 @@ nav{
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  padding: 15px 69px;
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0 / 6%);
   transform: translateY(0);
   transition: transform 200ms linear;
@@ -48,34 +25,45 @@ nav{
 nav.navHidden {
   transform: translateY(-100%);
 }
+.logo{
+  display: flex;
 
-nav ul{
-  left: 40%;
-  width: 100%;
-  margin: 20px 0;
 }
-nav ul li{
+.logo p{
+  border-radius: 10px;
+  padding: 4px;
+  background: var(--blue);
+  color: white;
+}
+nav li{
   display: inline-flex;
-  margin: 0 5px;
   flex-direction: column;
   align-items: center;
+  margin: 0 20px;
 }
-nav ul li a{
+nav li a{
   color: white;
-  font-size: 17px;
-  padding: 7px 13px;
-  border-radius: 3px;
-  text-transform: uppercase;
+  font-size: 1.5em;
   text-decoration: none;
+  text-transform: capitalize;
 }
-.line {
-  width: 20px;
-  border-radius: 15px;
-  max-width: 800px;
-  height: 3px;
-  position: relative;
-  display: inline-block;
-  background-color: rgba(255,255,255,1);
+nav li a:first-letter {
+  text-transform: uppercase;
+}
+nav li a::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 1%;
+  left: 0;
+
+  color: var(--blue);
+  overflow: hidden;
+
+  width: 0%;
+  transition: 0.5s;
+}
+nav li a:hover::before {
+  width: 100%;
 }
 .hero{
   display: flex;
@@ -116,12 +104,14 @@ section {
   flex-direction: column;
 }
 .card {
-  padding: 2rem 4rem;
-  height: 200px;
-  width: 500px;
   text-align: center;
   margin: 10px;
   border: 1px solid var(--accent-color);
   border-radius: 4px;
   background-color: var(--background-color-secondary);
+}
+
+footer{
+  position: absolute;
+  bottom: 0;
 }
