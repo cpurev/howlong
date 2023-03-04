@@ -11,23 +11,25 @@ header{
 }
 nav{
   position: fixed;
-  background: var(--background-color-secondary);
+  background-color: rgba(var(--background-color-dec), 0.85);
+  backdrop-filter: blur(7px);
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
   justify-content: space-between;
+  font-size: var(--f-large);
   width: 100%;
   padding: 15px 69px;
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0 / 6%);
   transform: translateY(0);
   transition: transform 200ms linear;
 }
 nav.navHidden {
   transform: translateY(-100%);
 }
-.logo{
+nav.navBorder {
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0 / 6%);
+}
+.logo, .links{
   display: flex;
-
+  align-items: center;
 }
 .logo p{
   border-radius: 10px;
@@ -35,7 +37,7 @@ nav.navHidden {
   background: var(--blue);
   color: white;
 }
-nav li{
+nav li, footer li{
   display: inline-flex;
   flex-direction: column;
   align-items: center;
@@ -43,7 +45,6 @@ nav li{
 }
 nav li a{
   color: white;
-  font-size: 1.5em;
   text-decoration: none;
   text-transform: capitalize;
 }
@@ -91,17 +92,23 @@ nav li a:hover::before {
   color: var(--blue-dim);
   line-height: 1.1;
 }
-
-section {
-  margin: 0px auto;
-  padding: 250px 0px;
-  min-height: 100vh;
-}
 .wrapper {
   background-color: var(--background-color-primary);
   display: flex;
   align-items: center;
   flex-direction: column;
+}
+section {
+  margin: 0px auto;
+  padding: 100px 0px;
+  min-height: 100vh;
+  max-width: 960px;
+}
+h2{
+  font-weight: 600;
+  color: var(--blue);
+  line-height: 1.1;
+  font-size: clamp(26px,5vw,32px);
 }
 .card {
   text-align: center;
@@ -109,9 +116,15 @@ section {
   border: 1px solid var(--accent-color);
   border-radius: 4px;
   background-color: var(--background-color-secondary);
+  
 }
-
+p{
+  margin: 13px 0;
+}
 footer{
   position: absolute;
   bottom: 0;
+  display: flex;    
+  align-items: center;
+  flex-direction: column;
 }

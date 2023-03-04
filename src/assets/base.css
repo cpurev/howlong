@@ -1,7 +1,8 @@
 /* color palette */
 :root {
-  --background-color-primary: #1e1e1e;
-  --background-color-secondary: #2d2d30;
+  --background-color-primary: #092026;
+  --background-color-ligther: #0D2F39;
+  --background-color-dec: 9, 32, 38;
   --accent-color: #3f3f3f;
   --text-primary-color: #ddd;
 
@@ -15,6 +16,11 @@
   --blue-bright: #c3fbfb;
   --blue-dim: #4b7f8e;
   --cyan: #94e4ec;
+
+  --f-small: 12px;
+  --f-medium: 15px;
+  --f-large: 20px;
+  --f-xxl: 22px;
 }
 
 *,
@@ -31,6 +37,7 @@ body {
   background: var(--color-background);
   line-height: 1.3;
   font-family: var(--font-sans);
+  font-size: 20px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
