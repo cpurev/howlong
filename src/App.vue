@@ -1,78 +1,26 @@
 <script setup>
+import { onMounted, nextTick } from 'vue'
+
 import ShakeButton from './components/ShakeButton.vue'
 import Projects from './components/Projects.vue'
-  const menu =  [
-    'about',
-    'projects',
-    'contact'
-  ]
-</script>
-<script>
-export default {
-  data: () => ({
-    navBorder: false,
-    showNavbar: true,
-    lastScrollPosition: 0,
-    scrollOffset: 40
-  }),
-  mounted() {
-    this.lastScrollPosition = window.pageYOffset
-    window.addEventListener('scroll', this.onScroll)
-    this.scrollAnimation();
-    if (location.hash) {
-      this.$refs[location.hash.substring(1)].scrollIntoView({
-          block: 'start',
-          behavior: 'smooth',
-          inline: 'nearest'
-        });}
-  },
-  beforeDestroy() {
-    window.removeEventListener('scroll', this.onScroll)
-  },
-  methods: {
-    scrollTo(e){
-
-      this.$refs[e.target.innerHTML].scrollIntoView({
-          block: 'start',
-          behavior: 'smooth',
-          inline: 'nearest'
-        });
-    },
-    onScroll() {
-      if (window.pageYOffset == 0) {
-        this.navBorder = false
-        return
-      }
-      if (Math.abs(window.pageYOffset - this.lastScrollPosition) < this.scrollOffset) {
-        return
-      }
-      this.navBorder = true
-      this.showNavbar = window.pageYOffset < this.lastScrollPosition
-      this.lastScrollPosition = window.pageYOffset
+import Nav from './components/Nav.vue'
 
 
-    },
-    scrollAnimation(){
-      
-    }
+function scrollToHash(hash) {
+  const elem = hash ? document.querySelector(hash) : false;
+  if(elem) {
+    gsap.to( window, 1, { scrollTo: elem, ease:Power3.easeOut } );
   }
 }
+ 
+onMounted(async () => {
+  await nextTick();
+  if(location.hash) scrollToHash(window.location.hash);
+});
 </script>
+
 <template>  
-  <header @scroll="onScroll">
-    <nav :class="[{ 'navHidden': !showNavbar}, {'navBorder': navBorder }]">
-      <div class = 'logo'>
-        <p>Chuluunbat Purev</p>
-      </div>
-      <div class="links">
-        <TransitionGroup tag="ul" name="fade-down" appear>
-          <li v-for="item in menu" class="item" :key="item">
-            <a :href="'#' + item " @click="scrollTo" :data-text="item">{{ item }}</a>
-          </li>
-        </TransitionGroup>
-    </div>
-    </nav>
-  </header>
+  <Nav :menu="['about', 'projects', 'contact']" :scrollTo="scrollToHash"/>
   <main>
     <div class="wrapper">
     <section class="hero">
@@ -105,7 +53,7 @@ export default {
         <ShakeButton text="Resume"/>
     </Transition>
       </section>
-    <section ref="profile">
+    <section id="about">
         <div class="profile" >
             <h2>{ About Me }</h2>
             <div class="card">
@@ -120,7 +68,7 @@ export default {
             </div>
         </div>
     </section>
-    <section ref="projects">
+    <section id="projects">
       <div class="projects" >
           <h2>{ Things I Have Worked on }</h2>
           <div class="card">
@@ -129,7 +77,7 @@ export default {
           </div>
         </div>
     </section>
-    <section ref="contact" style="background-color: blue;">
+    <section id="contact" style="background-color: blue;">
       <div class="contact" >
           <div class="card">
             <h2>{ Get In Touch }</h2>
@@ -166,16 +114,11 @@ export default {
   </footer>
 </template>
 <style>
-.fade-up-enter-active, .fade-up-leave-active,
-.fade-down-enter-active, .fade-down-leave-active {
+.fade-up-enter-active, .fade-up-leave-active {
   transition: all 1s ease-in;
 }
 .fade-up-enter-from, .fade-up-leave-to {
   opacity: 0;
   transform: translateY(20px);
-}
-.fade-down-enter-from, .fade-down-leave-to {
-  opacity: 0;
-  transform: translateY(-5px);
 }
 </style>
