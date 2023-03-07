@@ -42,7 +42,7 @@ function onScroll() {
     <header @scroll="onScroll">
         <nav :class="[{ 'navHidden': !showNavbar}, {'navBorder': navBorder }]">
             <div class = 'logo'>
-                <p>Chuluunbat Purev</p>
+                <a href="/" aria-label="Home" target="_self" rel="noreferrer">Chuluunbat Purev</a>
             </div>
             <div class="links">
                 <TransitionGroup tag="ul" name="fade-down" appear>
@@ -83,11 +83,12 @@ nav.navBorder {
   display: flex;
   align-items: center;
 }
-.logo p{
+.logo a{
   border-radius: 10px;
   padding: 4px;
   background: var(--blue);
   color: white;
+  text-decoration: none;
 }
 nav li, footer li{
   display: inline-flex;

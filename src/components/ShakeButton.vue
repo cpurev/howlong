@@ -28,6 +28,10 @@ function clickHandler() {
 </template>
 
 <style scoped>
+div{
+  border-radius: 3px;
+  border: 1px solid var(--blue-dim);
+}
 .base-btn {
   padding: 1rem 3rem;
   background: transparent;
@@ -40,21 +44,21 @@ function clickHandler() {
   background: var(--blue-dim);
 }
 .shake {
-  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
-  transform: translate3d(0, 0, 0);
+  animation: shake 1s cubic-bezier(.36,.07,.19,.97) both;
+  transform-style: preserve-3d;
 }
 @keyframes shake {
   10%, 90% {
     transform: translate3d(0, -1px, 0);
   }
   20%, 80% {
-    transform: translate3d(0, 4px, 0);
+    transform: translate3d(0, 1px, 0);
   }
   30%, 50%, 70% {
-    transform: translate3d(0, -4px, 0);
+    transform: translate3d(0, -1px, 0);
   }
   40%, 60% {
-    transform: translate3d(0, 4px, 0);
+    transform: translate3d(0, 1px, 0);
   }
 }
 </style>
