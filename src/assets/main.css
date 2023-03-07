@@ -1,8 +1,5 @@
 @import './base.css';
 
-p{
-  color: var(--text-primary-color);
-}
 .hero{
   display: flex;
   align-items: flex-start;
@@ -24,7 +21,7 @@ p{
   font-weight: 500;
   line-height: 1.1;
 }
-.hero h3{
+.hero h3, .contact h2{
   font-size: clamp(20px, 6vw, 60px);
   color: var(--blue-dim);
   line-height: 1.1;
@@ -34,6 +31,41 @@ p{
   display: flex;
   align-items: center;
   flex-direction: column;
+}
+.contact{
+  text-align: center;
+  line-height: 1.5;
+}
+.email-link{
+  margin-top: 4rem;
+}
+.contact-links{
+  display: block;
+  width: 100%;
+  max-width: 270px;
+  margin: 0px auto 10px;
+}
+.contact-links ul{
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  align-items: center;
+  padding: 0px;
+  margin: 0px;
+  list-style: none;
+}
+.contact-links a{
+  color: white;
+}
+.contact-links a:hover{
+  color: var(--blue);
+}
+.contact-links li{
+  transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
+}
+.contact-links li:hover{
+  transform: translateY(-3px);
 }
 section {
   margin: 0px auto;
@@ -48,12 +80,24 @@ h2{
   font-size: clamp(26px,5vw,32px);
 }
 p{
-  margin: 13px 0;
+  color: var(--text-primary-color);
+  margin: 20px 0;
 }
 footer{
   position: absolute;
   bottom: 0;
-  display: flex;    
+  width: 100%;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
   align-items: center;
   flex-direction: column;
+  height: auto;
+  min-height: 70px;
+  padding: 15px;
+  text-align: center;
+}
+footer p{
+  font-size: var(--f-medium);
 }

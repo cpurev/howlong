@@ -50,7 +50,7 @@ onMounted(async () => {
     </Transition>
     <Transition appear
       name="fade-up">
-        <ShakeButton text="Resume"/>
+        <ShakeButton text="Resume" link="/"/>
     </Transition>
       </section>
     <section id="about">
@@ -77,20 +77,21 @@ onMounted(async () => {
           </div>
         </div>
     </section>
-    <section id="contact" style="background-color: blue;">
+    <section id="contact">
       <div class="contact" >
-          <div class="card">
             <h2>{ Get In Touch }</h2>
             <p>As a recent graduate, I am eager to take the next step in my career and continue learning.  Currently, I'm open to any position in any city in America. 
               Please feel free to contact me if you have an opportuniy that you believe would be a good fit for me. I am always excited to explore new challenges and technologies.
             </p>
-          </div>
+            <div class='email-link'>
+            <ShakeButton text="puluunbat@gmail.com" link="mailto:puluunbat@gmail.com"/>
+            </div>
         </div>
     </section>
     </div>
   </main>
   <footer>
-    <div>
+    <div class="contact-links">
       <ul>
           <li title="Resume">
             <a href="#" aria-label="Resume" target="_blank" rel="noreferrer"><font-awesome-icon icon="fa-regular fa-file" /></a>
@@ -107,9 +108,7 @@ onMounted(async () => {
         </ul>
       </div>
       <div>
-        <p>This site's purpose is to raise awarness of Chuluunbat Purev, if you are aware of the guy. 
-          Thank you. If not I'd recommend reloading the page so you can see all the small animations he made sitting in his dark room on a tuesday night.
-        </p>
+        <p>© 2023, Chuluunbat Purev</p>
       </div>
   </footer>
 </template>

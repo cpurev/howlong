@@ -1,12 +1,39 @@
 <script setup>
-import { onMounted } from 'vue'
+import { onMounted, ref, nextTick } from 'vue'
 const items =[
-  {name:'Portfolio', description:'My portfolio website created with Vue3 and Greensock javascript animation library', languages:['Vue', 'Greensock'], link:'/'},
-  {name:'Fletnix', description:'A mock up streaming service site with user authentication and roles', languages:['NextJS', 'MongoDB'], link:'https://fletnix.vercel.app/'},
+  {name:'Portfolio', description:'My portfolio website created from scratch with Vue3 and Greensock javascript animation library', languages:['Vue', 'Greensock'], link:'/'},
   {name:'Just Draw', description:'A simple minimalistic web app that lets you just draw and share', languages:['NuxtJS'], link:'@'},
   {name:'New Music Friday', description:'A single page web app that uses Spotify API to display all the new music that is coming out in that weeks friday. Future plans are to archive them', languages:['React'], link:'@'},
+  {name:'Fletnix', description:'A mock up streaming service site with user authentication and roles', languages:['NextJS', 'MongoDB'], link:'https://fletnix.vercel.app/'},
   {name:'Our Winter World', description:'Created activities for educational puposes using React and Wordpress', languages:['React', 'WordPress', 'PHP'], link:'http://ourwinterworld.org/'}
 ]
+const moveBy = ref();
+const cardNum = ref();
+const iteration = ref(0);
+
+onMounted(async () => {
+  await nextTick();
+  moveBy.value =  document.getElementById("card").offsetWidth + 10;
+  cardNum.value = gsap.utils.toArray('#card');
+})
+
+function gotoPrevSlide() {
+  if(iteration.value == 0) return
+  iteration.value -= 1;
+  gsap.to(".cards",{
+    duration: 0.5,
+    x: "+=" + moveBy.value
+  })
+}
+
+function gotoNextSlide() {
+  if(iteration.value == cardNum.value.length - 3) return
+  iteration.value += 1;
+  gsap.to(".cards",{
+    duration: 0.5,
+    x: "-=" + moveBy.value
+  })
+}
 </script>
 
 <template>
@@ -35,8 +62,8 @@ const items =[
           </div>
         </li>
       </transition-group>
-        <a class="prev" >&#10094;</a>
-        <a class="next">&#10095;</a>
+        <a class="prev" @click="gotoPrevSlide">&#10094;</a>
+        <a class="next" @click="gotoNextSlide">&#10095;</a>
     </div>
   </div>
 </template>
@@ -64,20 +91,21 @@ const items =[
   display:flex;
   position: relative;
   }
-.cards li{
-  flex: 1 0 calc(100%/ 3);
-  box-shadow: 0 10px 30px -15px var(--accent-color);
+#card{
+  flex: 1 0 31%;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
   align-items: flex-start;
   border-radius: 6px;
   background-color: var(--background-color-ligther);
-  padding: 15px;
+  transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
+  padding: 20px;
   margin: 0 10px;
-  width: 30%;
 }
-
+#card:hover{
+  transform: translateY(-7px);
+}
   .card-header{
     width: 100%;
     display: flex;
@@ -85,13 +113,13 @@ const items =[
     justify-content: space-between;
     -webkit-box-align: center;
     align-items: center;
-    margin-bottom: 35px;
+    margin-bottom: 15px;
   }
   .folder{
     color: var(--blue);
   }
   .project-link a{
-    color: var(--blue-dim);
+    color: var(--blue-muted);
   }
   h3{
     margin: 0px 0px 10px;
@@ -117,9 +145,10 @@ const items =[
   }
   .card-footer li{
     font-family: var(--font-mono);
-    font-size: var(--f-xxs);
-    line-height: 1.25;
-    margin: 5px;
+    font-size: var(--f-medium);
+    color: var(--blue-muted);
+    line-height: 1.75;
+    margin: 0 15px;
   }
   @media (max-width: 992px) {
     .container {  grid-template-columns: auto;}
@@ -128,7 +157,7 @@ const items =[
 .prev, .next {
   cursor: pointer;
   position: absolute;
-  top: 50%;
+  top: 45%;
   width: auto;
   margin-top: -22px;
   padding: 16px;
@@ -148,7 +177,7 @@ const items =[
 
 /* On hover, add a black background color with a little bit see-through */
 .prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
+  color: var(--blue-dark);
 }
 
 </style>
