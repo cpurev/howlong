@@ -5,18 +5,66 @@ import ShakeButton from './components/ShakeButton.vue'
 import Projects from './components/Projects.vue'
 import Nav from './components/Nav.vue'
 
+const sections = gsap.utils.toArray("section");
 
 function scrollToHash(hash) {
-  const elem = hash ? document.querySelector(hash) : false;
-  if(elem) {
-    gsap.to( window, 1, { scrollTo: elem, ease:Power3.easeOut } );
-  }
+
+    
 }
  
 onMounted(async () => {
   await nextTick();
+  document.documentElement.scrollTop = 0;
   if(location.hash) scrollToHash(window.location.hash);
-});
+
+  gsap.fromTo(".contact", { opacity: 0}, {
+      ease:'power1.inOut',
+      opacity: 1,
+      scrollTrigger: {
+        trigger: ".contact",
+        start: "100px 90%",
+        end: "160px center",
+        scrub: true
+      }
+    });
+
+  gsap.fromTo(".projects li", { opacity: 0, y:100}, {
+    ease:'power1.inOut',
+    opacity: 1,
+    y: 0,
+    stagger: 0.3,
+    scrollTrigger: {
+      trigger: ".projects",
+      start: "100px 90%",
+      end: "center center",
+      scrub: true
+    }
+  });
+
+  gsap.fromTo(".about-me", {opacity: 0, x:-60},{
+    ease:'power1.inOut',
+    opacity: 1,
+    x: 0,
+    scrollTrigger: {
+      trigger: ".profile",
+      start: "100px 90%",
+      end: "center center",
+      scrub: true
+    }
+  });
+  
+  gsap.fromTo(".about-pic", {opacity: 0, x:60},{
+    ease:'power1.inOut',
+    opacity: 1,
+    x: 0,
+    scrollTrigger: {
+      trigger: ".profile",
+      start: "100px 90%",
+      end: "center center",
+      scrub: true
+    }
+  });
+})
 </script>
 
 <template>  
@@ -56,23 +104,40 @@ onMounted(async () => {
     <section id="about">
         <div class="profile" >
             <h2>{ About Me }</h2>
-            <div class="card">
-              <p>👋 Hey there! I'm Chuluunbat, or Chuka, and I'm an aspiring software engineer. 
-                Growing up in Mongolia my father owned an Internet Cafe (a relic of its time, nowadays only gaming ones exist) where it was just me and him working there. 
-                We did everything that has to do with computers from running the place to, formating computers, building PCs, troubleshooting, and selling PC parts.</p>
-              <p>It was natural for me to pursue a degree in Computer Science and choose a career in IT industry. During my time at university, I had opportunity to work and explore specific areas of Computer Science.
-                I have learned and have experience in working on Machine Learning, Cryptography, and DevOps.
+            <div class="inner-profile">
+            <div class="about-me">
+              <p>Hello! My name is Chuluunbat and I enjoy writing code. 
+                Growing up, computers were an integral part of my life. From playing video games all day to working at my dad's internet cafe.
+                 I eventually got a lot of passion for Computers and was fascinated by things that could be done(and have been done)</p>
+              <p>Fast-forward to today, and I'm almost finished getting my CS degree. 
+                Throughout my time in university, I had the opportunity to work on and explored various areas of Computer Science
               </p>
-              <p>I will be graduating from my university in April, 2023. So </p>
-              <p>Here are some things that I spend my time on:</p>
+              <p>Outside work, I enjoy playing competitive video games, working out and listening to music. </p>
+              <p>Areas in CS I worked in or would love to learn more about:</p>
+            <ul class="interests">
+              <li>Cloud Computing</li>
+              <li>.NET development</li>
+              <li>Mobile App development</li>
+              <li>Cybersecurity</li>
+              <li>Machine Learning</li>
+              <li>DevOps</li>
+              <li>Full stack Web Development</li>
+              <li>Graphics</li>
+            </ul>
             </div>
+            <div class="about-pic">
+              <div class="img-wrapper">
+                <img width="300" height="300" decoding="async" src="./assets/images/placeholder.jpg" alt="Headshot">
+              </div>
+            </div>
+          </div>
         </div>
     </section>
     <section id="projects">
       <div class="projects" >
           <h2>{ Things I Have Worked on }</h2>
           <div class="card">
-            <p> Noteworthy projects.</p>
+            <p> Some noteworthy deployed(or plan to deploy) projects</p>
             <Projects />
           </div>
         </div>
@@ -80,7 +145,7 @@ onMounted(async () => {
     <section id="contact">
       <div class="contact" >
             <h2>{ Get In Touch }</h2>
-            <p>As a recent graduate, I am eager to take the next step in my career and continue learning.  Currently, I'm open to any position in any city in America. 
+            <p>As a recent graduate, I am eager to take the next step in my career and continue learning.  Currently, I'm open to any developer position in any city in USA. 
               Please feel free to contact me if you have an opportuniy that you believe would be a good fit for me. I am always excited to explore new challenges and technologies.
             </p>
             <div class='email-link'>

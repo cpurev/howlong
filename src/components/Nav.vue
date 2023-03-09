@@ -24,7 +24,10 @@ onMounted(() => {
 onUnmounted(() => {
     window.removeEventListener('scroll', onScroll)
 })
-
+function onClick(event){
+  event.preventDefault()
+  scrollTo(event.target.href, event)
+}
 function onScroll() {
     if (window.pageYOffset == 0) {
         navBorder.value = false
@@ -47,7 +50,7 @@ function onScroll() {
             <div class="links">
                 <TransitionGroup tag="ul" name="fade-down" appear>
                     <li v-for="item in menu" class="item" :key="item">
-                        <a :href="'#' + item " @click="scrollTo('#' + item)" :data-text="item">{{ item }}</a>
+                        <a :href="'#' + item " @click="onClick" :data-text="item">{{ item }}</a>
                     </li>
                 </TransitionGroup>
             </div>

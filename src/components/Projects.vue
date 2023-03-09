@@ -1,11 +1,11 @@
 <script setup>
 import { onMounted, ref, nextTick } from 'vue'
 const items =[
-  {name:'Portfolio', description:'My portfolio website created from scratch with Vue3 and Greensock javascript animation library', languages:['Vue', 'Greensock'], link:'/'},
+  {name:'Portfolio', description:'Portfolio website created from scratch with Vue3 and Greensock javascript animation library', languages:['Vue3', 'Greensock'], link:'/'},
   {name:'Just Draw', description:'A simple minimalistic web app that lets you just draw and share', languages:['NuxtJS'], link:'@'},
   {name:'New Music Friday', description:'A single page web app that uses Spotify API to display all the new music that is coming out in that weeks friday. Future plans are to archive them', languages:['React'], link:'@'},
   {name:'Fletnix', description:'A mock up streaming service site with user authentication and roles', languages:['NextJS', 'MongoDB'], link:'https://fletnix.vercel.app/'},
-  {name:'Our Winter World', description:'Created activities for educational puposes using React and Wordpress', languages:['React', 'WordPress', 'PHP'], link:'http://ourwinterworld.org/'}
+  {name:'Our Winter World', description:'Created WordPress plugin for educational activities page using React', languages:['React', 'WordPress', 'PHP'], link:'http://ourwinterworld.org/'}
 ]
 const moveBy = ref();
 const cardNum = ref();
