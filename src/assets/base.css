@@ -14,7 +14,7 @@
 
   --blue: #6cc4dc;
   --blue-bright: #c3fbfb;
-  --blue-dim: #45B4D3;
+  --blue-dim: #407584;
   --blue-muted: #288EAA;
   --blue-dark: #123F4C;
   --cyan: #94e4ec;
@@ -43,4 +43,17 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--blue-dim);
+  border: 3px solid var(--background-color-primary);
+  border-radius: 10px;
+}
+
+body::-webkit-scrollbar {
+  width: 12px;
+}
+body::-webkit-scrollbar-track {
+  background: var(--background-color-primary);
 }

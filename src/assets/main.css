@@ -6,14 +6,16 @@
   justify-content: flex-start;
   flex-direction: column;
   min-height: 100vh;
+  min-width: 900px;
   padding: 200px 0;
   font-size: 1em;
   font-family: var(--font-sans);
 }
 .hero h1{
-  margin: 0 0 30px 4px;
+  margin: 0 0 20px 4px;
   color: var(--blue);
-  font-size: clamp(0.5vw, 1.5vw, 2rem);
+  font-size: clamp(14px, 5vw, 16px);
+  font-family: var(--font-mono);
 }
 .hero h2{
   font-size: clamp(40px, 8vw, 80px);
@@ -25,6 +27,9 @@
   font-size: clamp(20px, 6vw, 60px);
   color: var(--blue-dim);
   line-height: 1.1;
+}
+.hero p{
+  max-width: 666px;
 }
 .wrapper {
   background-color: var(--background-color-primary);
@@ -76,6 +81,9 @@
   margin-top: 40px;
   text-align: center;
   line-height: 1.5;
+}
+.contact h2{
+  color: var(--blue)
 }
 .email-link{
   margin-top: 4rem;

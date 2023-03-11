@@ -16,7 +16,7 @@ const altText = ref('click me')
 </script>
 
 <template>
-  <a class="base-btn" :href="link" @mouseover="clickHandler">
+  <a class="base-btn" :href="link" @mouseover="clickHandler" target="_blank" rel="noreferrer">
     {{ text ? text : altText }}
   </a>
 </template>
