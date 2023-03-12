@@ -72,12 +72,12 @@ function enter(el, done){
                 </TransitionGroup>
             </div>
             <div class="hamburger-links">
-              <button class="ham__btn" @click="hamOpen=!hamOpen" :class="{active:hamOpen}">
+              <button class="ham__btn" @click="hamOpen=!hamOpen" :class="{'active':hamOpen}">
                 <span class="top"></span>
                 <span class="mid"></span>
                 <span class="bottom"></span>
               </button>
-              <TransitionGroup tag="ul" 
+              <TransitionGroup tag="ul" v-if="hamOpen" class="aside"
                 name ="translateX">
                     <li v-for="(item, index) in menu" class="ham_item" :key="item" :data-index="index">
                         <a :href="'#' + item " @click="onClick" :data-text="item">{{ item }}</a>
@@ -91,7 +91,7 @@ function enter(el, done){
 header{
   position: fixed;
   top: 0px;
-  z-index: 10;
+  z-index: 9;
   width: 100%;
 }
 nav{
@@ -167,10 +167,10 @@ nav .item a:hover::before {
   display: block;
   width: 50px;
   height: 50px;
-  background: grey;
+  background: var(--background-color-primary);
   border: none;
   position: relative;
-  z-index: 100;
+  z-index: 10;
   appearance: none;
   cursor: pointer;
   outline: none;
@@ -243,6 +243,9 @@ nav .item a:hover::before {
 }
 
 @media only screen and (max-width: 768px) {
+  nav, nav.navBorder{
+    padding: 16px;
+  }
   .links {
     display:none;
   }
@@ -255,5 +258,24 @@ nav .item a:hover::before {
   .hamburger-links{
     display:block;
   }
+.aside{
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  padding: 50px 10px;
+  width: min(75vw, 400px);
+  height: 100vh;
+  outline: 0px;
+  background-color: var(--background-color-ligther);
+  box-shadow: -10px 0px 30px -15px rgba(2,12,27,0.7);
+  z-index: 9;
+  flex-direction: column;
+}
 }
 </style>

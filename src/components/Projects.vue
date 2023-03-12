@@ -149,10 +149,7 @@ function gotoNextSlide() {
     color: var(--blue-muted);
     line-height: 1.75;
     margin: 0 15px;
-  }
-  @media (max-width: 992px) {
-    .container {  grid-template-columns: auto;}
-}   
+  } 
 /* Next & previous buttons */
 .prev, .next {
   cursor: pointer;
@@ -180,4 +177,19 @@ function gotoNextSlide() {
   color: var(--blue-dark);
 }
 
+@media only screen and (max-width: 768px) {
+  .prev, .next{
+    display: none;
+  }
+  .wrapper{
+    min-width: 100%;
+  }
+  .cards{
+    flex-direction: column;
+  }
+  #card{
+    flex: 0;
+    margin: 20px;
+  }
+}
 </style>

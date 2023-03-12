@@ -6,7 +6,6 @@
   justify-content: flex-start;
   flex-direction: column;
   min-height: 100vh;
-  min-width: 900px;
   padding: 200px 0;
   font-size: 1em;
   font-family: var(--font-sans);
@@ -148,4 +147,13 @@ footer{
 }
 footer p{
   font-size: var(--f-medium);
+}
+
+@media only screen and (max-width: 768px) {
+  .inner-profile{
+    display: block;
+  }
+  section{
+    margin: 5px;
+  }
 }
