@@ -165,7 +165,7 @@ onMounted(async () => {
         </ul>
       </div>
       <div>
-        <p>© 2023, Chuluunbat Purev</p>
+        <p>© 2023, Built by Chuluunbat Purev, Inspiration from   <a href="https://brittanychiang.com/" target="_blank" rel="noreferrer">Brittany Chiang</a></p>
       </div>
   </footer>
 </template>

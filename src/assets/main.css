@@ -148,7 +148,9 @@ footer{
 footer p{
   font-size: var(--f-medium);
 }
-
+footer a{
+  color: var(--blue)
+}
 @media only screen and (max-width: 768px) {
   .inner-profile{
     display: block;
