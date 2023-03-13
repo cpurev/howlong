@@ -72,7 +72,7 @@ function enter(el, done){
                 </TransitionGroup>
             </div>
             <div class="hamburger-links">
-              <button class="ham__btn" @click="hamOpen=!hamOpen" :class="{'active':hamOpen}">
+              <button aria-label="Hamburger Button" class="ham__btn" @click="hamOpen=!hamOpen" :class="{'active':hamOpen}">
                 <span class="top"></span>
                 <span class="mid"></span>
                 <span class="bottom"></span>

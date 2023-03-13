@@ -68,25 +68,25 @@ onMounted(async () => {
     <section class="hero">
     <Transition appear
       name="fade-up">
-        <div style="transition: all 0.5s ease-in">
+        <div>
           <h1>Hi, my name is</h1>
         </div>
     </Transition>
     <Transition appear
       name="fade-up">
-        <div style="transition: all 1s ease-in">
+        <div>
           <h2>Chuluunbat Purev.</h2>
         </div>
     </Transition>
     <Transition appear
       name="fade-up">
-        <div style="transition: all 1.5s ease-in">
+        <div>
           <h3>You know, computers are magic!</h3>
         </div>
     </Transition>
     <Transition appear
       name="fade-up">
-        <div style="transition: all 2s ease-in">
+        <div>
           <p>I'm a software developer most versed in Front-end Web Development. Currently, I'm focused on finishing my CS degree and finding a job. </p>
         </div>
     </Transition>
@@ -170,6 +170,9 @@ onMounted(async () => {
   </footer>
 </template>
 <style>
+.fade-up-leave-from, .fade-up-enter-to {
+  transition: all 1s ease-in;
+}
 .fade-up-enter-from, .fade-up-leave-to {
   opacity: 0;
   transform: translateY(20px);
