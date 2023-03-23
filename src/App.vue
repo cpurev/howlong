@@ -90,10 +90,6 @@ onMounted(async () => {
           <p>I'm a software developer most versed in Front-end Web Development. Currently, I'm focused on finishing my CS degree. </p>
         </div>
     </Transition>
-    <Transition appear
-      name="fade-up">
-        <ShakeButton text="Resume" link="https://drive.google.com/file/d/1p_oI140qzwjDMW-zNRVfYdI1e23R6yKA/view?usp=sharing"/>
-    </Transition>
       </section>
     <section id="about">
         <div class="profile" >
@@ -101,7 +97,7 @@ onMounted(async () => {
             <div class="inner-profile">
             <div class="about-me">
               <p>Hello! My name is Chuluunbat and I enjoy writing code. 
-                Growing up, computers were an integral part of my life. From playing video games all day to working at my dad's <a href="https://en.wikipedia.org/wiki/PC_bang"  aria-label="PC wikipedia" target="_blank" rel="noreferrer" >internet cafe</a>.
+                Growing up, computers were an integral part of my life. From playing video games all day to working at my dad's internet cafe.
                  I eventually got a lot of passion for Computers and was fascinated by things that could be done(and have been done).</p>
               <p>Fast-forward to today, and I'm almost finished getting my CS degree. 
                 Throughout my time in university, I had the opportunity to work on and explored various areas of Computer Science.
@@ -129,7 +125,7 @@ onMounted(async () => {
       <div class="projects" >
           <h2>{ Things I Have Worked on }</h2>
           <div class="card">
-            <p> Some noteworthy deployed projects</p>
+            <p> Some noteworthy deployed(or plan to deploy) projects</p>
             <Projects />
           </div>
         </div>
@@ -137,7 +133,7 @@ onMounted(async () => {
     <section id="contact">
       <div class="contact" >
             <h2>{ Get In Touch }</h2>
-            <p>I am eager to take the next step in my career and continue learning. Currently, I'm open to any developer position in any city in USA. 
+            <p>I am eager to take the next step in my career and continue learning.  Currently, I'm open to any developer position in any city in USA. 
               Please feel free to contact me if you have an opportuniy that you believe would be a good fit for me. I am always excited to explore new challenges and technologies.
             </p>
             <div class='email-link'>
