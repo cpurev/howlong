@@ -107,10 +107,8 @@ onMounted(async () => {
             <ul class="interests">
               <li>Cloud Computing</li>
               <li>.NET development</li>
-              <li>Machine Learning</li>
               <li>DevOps</li>
               <li>Full stack Web Development</li>
-              <li>Embedded systems</li>
             </ul>
             </div>
             <div class="about-pic">
