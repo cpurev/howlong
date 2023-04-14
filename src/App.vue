@@ -97,7 +97,7 @@ onMounted(async () => {
             <div class="inner-profile">
             <div class="about-me">
               <p>Hello! My name is Chuluunbat and I enjoy writing code. 
-                Growing up, computers were an integral part of my life. From playing video games all day to working at my dad's internet cafe.
+                Growing up, computers were an integral part of my life. From playing video games all day to working at my dad's <a href="https://en.wikipedia.org/wiki/PC_bang" aria-label="Wikipedia link" target="_blank" rel="noreferrer">internet cafe</a>.
                  I eventually got a lot of passion for Computers and was fascinated by things that could be done(and have been done).</p>
               <p>Fast-forward to today, and I'm finished getting my CS degree. 
                 Throughout my time in university, I had the opportunity to work on and explored various areas of Computer Science.
@@ -108,12 +108,12 @@ onMounted(async () => {
               <li>Cloud Computing</li>
               <li>.NET development</li>
               <li>DevOps</li>
-              <li>Full stack Web Development</li>
+              <li>Web Development</li>
             </ul>
             </div>
             <div class="about-pic">
               <div class="img-wrapper">
-                <img width="300" height="300" decoding="async" src="./assets/images/placeholder.jpg" alt="Headshot">
+                <img width="300" height="300" decoding="async" src="./assets/images/headshot_1.jpg" alt="Headshot">
               </div>
             </div>
           </div>

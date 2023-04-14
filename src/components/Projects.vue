@@ -1,6 +1,7 @@
 <script setup>
 import { onMounted, ref, nextTick } from 'vue'
 const items =[
+  {name:'Scholars', description:'Web service for Alaskan highschool delegators to submit their students for scholarship opportunities in University of Alaska', languages:['TypeScript', 'React', 'Fastify', 'Prisma'], link:'@'},
   {name:'Portfolio', description:'Portfolio website created from scratch with Vue3 and Greensock javascript animation library', languages:['Vue3', 'Greensock'], link:'/'},
   {name:'New Music Friday', description:'A single page web app that uses Spotify API to display all the new music that is coming out in that weeks friday. Future plans are to archive them', languages:['React'], link:'@'},
   {name:'Fletnix', description:'A mock up streaming service site with user authentication and roles', languages:['NextJS', 'MongoDB'], link:'https://fletnix.vercel.app/'},
@@ -9,11 +10,13 @@ const items =[
 const moveBy = ref();
 const cardNum = ref();
 const iteration = ref(0);
+const barWidth = ref(0);
 
 onMounted(async () => {
   await nextTick();
   moveBy.value =  document.getElementById("card").offsetWidth + 10;
   cardNum.value = gsap.utils.toArray('#card');
+  barWidth.value = 960 / (cardNum.value.length - 2) - 12;
 })
 
 function gotoPrevSlide() {
@@ -22,7 +25,11 @@ function gotoPrevSlide() {
   gsap.to(".cards",{
     duration: 0.5,
     x: "+=" + moveBy.value
-  })
+  });
+  gsap.to(".prog-bar",{
+    duration: 0.5,
+    x: "-=" + barWidth.value
+  });
 }
 
 function gotoNextSlide() {
@@ -31,7 +38,11 @@ function gotoNextSlide() {
   gsap.to(".cards",{
     duration: 0.5,
     x: "-=" + moveBy.value
-  })
+  });
+  gsap.to(".prog-bar",{
+    duration: 0.5,
+    x: "+=" + barWidth.value
+  });
 }
 </script>
 
@@ -63,6 +74,7 @@ function gotoNextSlide() {
       </transition-group>
         <a class="prev" @click="gotoPrevSlide">&#10094;</a>
         <a class="next" @click="gotoNextSlide">&#10095;</a>
+        <div class = "prog-bar" :style="{'width': barWidth + 'px'}"></div>
     </div>
   </div>
 </template>
@@ -174,6 +186,15 @@ function gotoNextSlide() {
 /* On hover, add a black background color with a little bit see-through */
 .prev:hover, .next:hover {
   color: var(--blue-dark);
+}
+
+.prog-bar{
+  position: absolute;
+  bottom: 0;
+  border-radius: 20px;
+  background-color: var(--blue);
+  height: 4px;
+  margin: 4px 1.5rem;
 }
 
 @media only screen and (max-width: 768px) {
