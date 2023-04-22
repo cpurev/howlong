@@ -96,8 +96,6 @@ header{
 }
 nav{
   position: fixed;
-  background-color: rgba(var(--background-color-dec), 0.85);
-  backdrop-filter: blur(7px);
   display: flex;
   justify-content: space-between;
   font-size: var(--f-large);
@@ -112,6 +110,8 @@ nav.navHidden {
 nav.navBorder {
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0 / 6%);
   padding: 15px 69px;
+  background-color: rgba(var(--background-color-dec), 0.85);
+  backdrop-filter: blur(7px);
 }
 .logo, .links{
   display: flex;

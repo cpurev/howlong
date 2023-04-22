@@ -31,10 +31,18 @@
   max-width: 666px;
 }
 .wrapper {
-  background-color: var(--background-color-primary);
+  /*background-color: var(--background-color-primary);*/
+  background: var(--background-url);
   display: flex;
   align-items: center;
   flex-direction: column;
+}
+.profile{
+  border: 1px solid var(--background-color-primary);
+  background-color: rgba(var(--background-color-dec), 0.15);
+  backdrop-filter: blur(4px);
+  border-radius: 12px;
+  padding: 20px;
 }
 .about-me a{
   display: inline-block;
