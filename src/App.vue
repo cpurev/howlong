@@ -87,7 +87,7 @@ onMounted(async () => {
     <Transition appear
       name="fade-up">
         <div>
-          <p>I'm a software developer most versed in Front-end Web Development. Currently, I'm focused on finishing my CS degree. </p>
+          <p>I'm a software developer most versed in Full-stack Web Development. </p>
         </div>
     </Transition>
       </section>
@@ -96,19 +96,22 @@ onMounted(async () => {
             <h2>{ About Me }</h2>
             <div class="inner-profile">
             <div class="about-me">
-              <p>Hello! My name is Chuluunbat and I enjoy writing code. 
+              <p>Hello! My name is Chuluunbat and I'm from Mongolia. 
                 Growing up, computers were an integral part of my life. From playing video games all day to working at my dad's <a href="https://en.wikipedia.org/wiki/PC_bang" aria-label="Wikipedia link" target="_blank" rel="noreferrer">internet cafe</a>.
-                 I eventually got a lot of passion for Computers and was fascinated by things that could be done(and have been done).</p>
-              <p>Fast-forward to today, and I'm finished getting my CS degree. 
-                Throughout my time in university, I had the opportunity to work on and explored various areas of Computer Science.
+                 I eventually got a lot of passion for computers and was fascinated by the endless possibilities they offered.</p>
+              <p>Fast-forward to today, and I obtained my Bachelor of Science in Computer Science degree, where I gained expertise in various fields of Computer Science.
+                Throughout my time in university, 
+                I enjoyed working with people, coding, and developing software that is widely used. I aspire to continue this pursuit for the rest of my life.
               </p>
-              <p>Outside work and school, I enjoy playing competitive video games, working out and listening to music. </p>
-              <p>Areas in CS that I would be intrested in getting into:</p>
+              <p>Outside of work and school, I enjoy playing competitive video games, working out and listening to music. </p>
+              <p>These are fields in IT that I have some experience in:</p>
             <ul class="interests">
               <li>Cloud Computing</li>
               <li>.NET development</li>
               <li>DevOps</li>
               <li>Web Development</li>
+              <li>Mobile Apps</li>
+              <li>System Engineer</li>
             </ul>
             </div>
             <div class="about-pic">
@@ -131,8 +134,8 @@ onMounted(async () => {
     <section id="contact">
       <div class="contact" >
             <h2>{ Get In Touch }</h2>
-            <p>Currently, I'm open to any developer position in any city in USA. 
-              Please feel free to contact me if you have an opportuniy that you believe would be a good fit for me. I am always excited to explore new challenges and technologies.
+            <p>Feel free to contact me via email or linkedin if you have an opportuniy that you believe would be a good fit for me.
+              I am always excited to explore new challenges and technologies.
             </p>
             <div class='email-link'>
             <ShakeButton text="puluunbat@gmail.com" link="mailto:puluunbat@gmail.com"/>

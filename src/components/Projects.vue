@@ -189,6 +189,7 @@ function gotoNextSlide() {
 }
 
 .prog-bar{
+  display: block;
   position: absolute;
   bottom: 0;
   border-radius: 20px;
@@ -210,6 +211,9 @@ function gotoNextSlide() {
   #card{
     flex: 0;
     margin: 20px;
+  }
+  .prog-bar{
+    display: none;
   }
 }
 </style>
