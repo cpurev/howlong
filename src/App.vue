@@ -99,7 +99,7 @@ onMounted(async () => {
               <p>Hello! My name is Chuluunbat and I'm from Mongolia. 
                 Growing up, computers were an integral part of my life. From playing video games all day to working at my dad's <a href="https://en.wikipedia.org/wiki/PC_bang" aria-label="Wikipedia link" target="_blank" rel="noreferrer">internet cafe</a>.
                  I eventually got a lot of passion for computers and was fascinated by the endless possibilities they offered.</p>
-              <p>Fast-forward to today, and I obtained my Bachelor of Science in Computer Science degree, where I gained expertise in various fields of Computer Science.
+              <p>Fast-forward to today, and I recently obtained my Computer Science degree, where I gained expertise in various fields of Computer Science.
                 Throughout my time in university, 
                 I enjoyed working with people, coding, and developing software that is widely used. I aspire to continue this pursuit for the rest of my life.
               </p>
@@ -107,11 +107,11 @@ onMounted(async () => {
               <p>These are fields in IT that I have some experience in:</p>
             <ul class="interests">
               <li>Cloud Computing</li>
-              <li>.NET development</li>
               <li>DevOps</li>
-              <li>Web Development</li>
-              <li>Mobile Apps</li>
-              <li>System Engineer</li>
+              <li>Systems Engineer</li>
+              <li>Full-stack Web Development</li>
+              <li>Deep learning</li>
+              <li>Web scraping scripts</li>
             </ul>
             </div>
             <div class="about-pic">

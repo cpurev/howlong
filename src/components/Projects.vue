@@ -1,9 +1,9 @@
 <script setup>
 import { onMounted, ref, nextTick } from 'vue'
 const items =[
-  {name:'Scholars', description:'Web service for Alaskan highschool delegators to submit their students for scholarship opportunities in University of Alaska', languages:['TypeScript', 'React', 'Fastify', 'Prisma'], link:'@'},
+  {name:'Scholars', description:'Web service for Alaskan highschool delegators to submit their students for scholarship opportunities in University of Alaska', languages:['TypeScript', 'Vue2', 'Fastify', 'Prisma'], link:'@'},
   {name:'Portfolio', description:'Portfolio website created from scratch with Vue3 and Greensock javascript animation library', languages:['Vue3', 'Greensock'], link:'/'},
-  {name:'New Music Friday', description:'A single page web app that uses Spotify API to display all the new music that is coming out in that weeks friday. Future plans are to archive them', languages:['React'], link:'@'},
+  {name:'New Music Friday', description:'A single page web app that uses Spotify API to display all the new music that is coming out in that weeks friday. Future plans are to archive them', languages:['React', 'Express', 'Firebase'], link:'@'},
   {name:'Fletnix', description:'A mock up streaming service site with user authentication and roles', languages:['NextJS', 'MongoDB'], link:'https://fletnix.vercel.app/'},
   {name:'Our Winter World', description:'Created WordPress plugin for educational activities page using React', languages:['React', 'WordPress', 'PHP'], link:'http://ourwinterworld.org/'}
 ]
