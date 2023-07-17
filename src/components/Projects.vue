@@ -113,7 +113,7 @@ function gotoNextSlide() {
   background-color: var(--background-color-ligther);
   transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
   padding: 20px;
-  margin: 0 10px;
+  margin: 0 8px;
 }
 #card:hover{
   transform: translateY(-7px);
