@@ -87,7 +87,7 @@ onMounted(async () => {
     <Transition appear
       name="fade-up">
         <div>
-          <p>I'm a software developer most versed in Full-stack Web Development. </p>
+          <p>I'm a software developer most versed in Full-stack Web Development and DevOps. Currently, I'm learning on GO and looking for a job opportunity.</p>
         </div>
     </Transition>
       </section>
@@ -110,8 +110,8 @@ onMounted(async () => {
               <li>DevOps</li>
               <li>Systems Engineer</li>
               <li>Full-stack Web Development</li>
-              <li>Deep learning</li>
-              <li>Web scraping scripts</li>
+              <li>Machine learning</li>
+              <li>Mobile Development</li>
             </ul>
             </div>
             <div class="about-pic">
@@ -135,7 +135,7 @@ onMounted(async () => {
       <div class="contact" >
             <h2>{ Get In Touch }</h2>
             <p>Feel free to contact me via email or linkedin if you have an opportuniy that you believe would be a good fit for me.
-              I am always excited to explore new challenges and technologies.
+              I am always excited to explore new challenges and create exciting products that is impactful to peoples lives.
             </p>
             <div class='email-link'>
             <ShakeButton text="puluunbat@gmail.com" link="mailto:puluunbat@gmail.com"/>
