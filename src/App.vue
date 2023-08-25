@@ -81,13 +81,13 @@ onMounted(async () => {
     <Transition appear
       name="fade-up">
         <div>
-          <h3>You know, computers are magic!</h3>
+          <h3>I'm a software developer</h3>
         </div>
     </Transition>
     <Transition appear
       name="fade-up">
         <div>
-          <p>I'm a software developer most versed in Full-stack Web Development and DevOps. Currently, I'm learning on GO and looking for a job opportunity.</p>
+          <p>Most versed in Full-stack Web Development and aiming to branch out to AI and Systems. Currently, I'm learning GO and looking for a job opportunity.</p>
         </div>
     </Transition>
       </section>
@@ -103,7 +103,7 @@ onMounted(async () => {
                 Throughout my time in university, 
                 I enjoyed working with people, coding, and developing software that is widely used. I aspire to continue this pursuit for the rest of my life.
               </p>
-              <p>Outside of work and school, I enjoy playing competitive video games, working out and listening to music. </p>
+              <p>Outside of work and school, I enjoy playing competitive video games, hitting the gym and listening to music. </p>
               <p>These are fields in IT that I have some experience in:</p>
             <ul class="interests">
               <li>Cloud Computing</li>
@@ -134,8 +134,8 @@ onMounted(async () => {
     <section id="contact">
       <div class="contact" >
             <h2>{ Get In Touch }</h2>
-            <p>Feel free to contact me via email or linkedin if you have an opportuniy that you believe would be a good fit for me.
-              I am always excited to explore new challenges and create exciting products that is impactful to peoples lives.
+            <p>Feel free to contact me via email or linkedin.
+              I am always excited to explore new opportunities and work on exciting big projects.
             </p>
             <div class='email-link'>
             <ShakeButton text="puluunbat@gmail.com" link="mailto:puluunbat@gmail.com"/>
