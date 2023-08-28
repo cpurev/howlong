@@ -87,7 +87,7 @@ onMounted(async () => {
     <Transition appear
       name="fade-up">
         <div>
-          <p>Most versed in Full-stack Web Development and aiming to branch out to AI and Systems. Currently, I'm learning GO and looking for a job opportunity.</p>
+          <p>Most versed in Full-stack Web Development and aiming to branch out to AI and Systems. Currently, I'm learning GO.</p>
         </div>
     </Transition>
       </section>
