@@ -1,220 +1,136 @@
 <script setup>
 import { onMounted, ref, nextTick } from 'vue'
 const items =[
-  {name:'A GO project', description:'Process of learning and creating a GO project with Vue fronte-end', languages:['GO', 'Vue3', ], link:'@'},
-  {name:'Scholars', description:'Web service for Alaskan highschool delegators to submit their students for scholarship opportunities in University of Alaska', languages:['TypeScript', 'Vue2', 'Fastify', 'Prisma'], link:'@'},
-  {name:'New Music Friday', description:'A single page web app that uses Spotify API which mimicks Spotify end of the year wrapped', languages:['React', 'Express', 'Firebase', 'Tailwind'], link:'@'},
+  {name:'Tube Man', description:'Simple page that simulates inflatable tube men', languages:['GO', 'Vue3', ], link:'@'},
+  {name:'UA Scholars', description:'Web service for Alaskan highschool delegators to submit their students for scholarship opportunities in University of Alaska', languages:['TypeScript', 'Vue2', 'Fastify', 'Prisma'], link:'@'},
+  {name:'Playlist Analyzer', description:'A single page web app that uses Spotify API which let\'s users see the song data and overall playlist data', languages:['React', 'Express', 'Firebase', 'Tailwind'], link:'@'},
   {name:'Portfolio', description:'Portfolio website created from scratch with Vue3 and Greensock javascript animation library', languages:['Vue3', 'Greensock'], link:'/'},
   {name:'Fletnix', description:'A mock up streaming service site with user authentication and roles', languages:['NextJS', 'MongoDB'], link:'https://fletnix.vercel.app/'},
-  {name:'Our Winter World', description:'Created WordPress plugin for educational activities page using React', languages:['React', 'WordPress', 'PHP'], link:'http://ourwinterworld.org/'}
+  {name:'Our Winter World', description:'Created WordPress plugin for snow educational activities', languages:['React', 'WordPress', 'PHP'], link:'http://ourwinterworld.org/'}
 ]
-const moveBy = ref();
-const cardNum = ref();
-const iteration = ref(0);
-const barWidth = ref(0);
+const itemsToShow = ref(3)
 
-onMounted(async () => {
-  await nextTick();
-  moveBy.value =  document.getElementById("card").offsetWidth + 10;
-  cardNum.value = gsap.utils.toArray('#card');
-  barWidth.value = 960 / (cardNum.value.length - 2) - 12;
-})
-
-function gotoPrevSlide() {
-  if(iteration.value == 0) return
-  iteration.value -= 1;
-  gsap.to(".cards",{
-    duration: 0.5,
-    x: "+=" + moveBy.value
-  });
-  gsap.to(".prog-bar",{
-    duration: 0.5,
-    x: "-=" + barWidth.value
-  });
-}
-
-function gotoNextSlide() {
-  if(iteration.value == cardNum.value.length - 3) return
-  iteration.value += 1;
-  gsap.to(".cards",{
-    duration: 0.5,
-    x: "-=" + moveBy.value
-  });
-  gsap.to(".prog-bar",{
-    duration: 0.5,
-    x: "+=" + barWidth.value
-  });
-}
 </script>
 
 <template>
-  <div class="wrapper">
-    <div class="gallery">
-      <transition-group 
-        appear
-        tag="ul"
-        class = "cards">
-        <li id = "card" v-for="(card, index) in items" :key="card.name" :data-index="index">
-          <div class="card-header">
-            <div class="folder"><font-awesome-icon icon="fa-regular fa-folder" size="2xl" /></div>
-            <div class="project-link">
-              <a v-if="card.link != '@'" :href="card.link" :aria-label="card.name" target="_blank" rel="noreferrer" ><font-awesome-icon icon="fa-solid fa-arrow-up-right-from-square" size="lg" /></a>
-              <p v-else>WIP</p>
-            </div>
-          </div>
-          <div class="card-content">
-            <h3 class="project-title"> {{ card.name }} </h3>
-            <div class="project-desc"><p>{{ card.description }}</p></div>
-          </div>
-          <div class="card-footer">
-            <ul class ="projects-langs">
-              <li v-for="lang in card.languages">{{  lang  }}</li>
-            </ul>
-          </div>
-        </li>
-      </transition-group>
-        <a class="prev" @click="gotoPrevSlide">&#10094;</a>
-        <a class="next" @click="gotoNextSlide">&#10095;</a>
-        <div class = "prog-bar" :style="{'width': barWidth + 'px'}"></div>
+  <div class="gallery">
+    <transition-group 
+      appear
+      tag="ul"
+      class = "cards">
+      <li v-for="(cardIndex, index) in itemsToShow" class = "card"
+          :key="items[index].name" :data-index="index">
+        <div class="card-img"></div>
+        <div class="card-header">
+            <h3 class="project-title"> {{ items[index].name }} </h3>
+            <a v-if="items[index].link != '@'" :href="items[index].link" :aria-label="items[index].name" 
+                target="_blank" rel="noreferrer" >
+              <font-awesome-icon icon="fa-solid fa-arrow-up-right-from-square" size="sm" />
+            </a>
+            <span v-else>WIP</span>
+        </div>
+        <div class="card-content">
+          <div class="project-desc"><p>{{ items[index].description }}</p></div>
+        </div>
+        <div class="card-footer">
+          <ul class ="projects-langs">
+            <li v-for="lang in items[index].languages">{{  lang  }}</li>
+          </ul>
+        </div>
+      </li>
+    </transition-group>
+    <div v-if="itemsToShow < items.length || items.length > itemsToShow" >
+      <button @click="itemsToShow += 3" class="show-more" aria-label="Show More">
+        Show More
+        <font-awesome-icon icon="fa-solid fa-chevron-down" size="lg" />
+      </button>
     </div>
   </div>
 </template>
 
 <style scoped>
-.wrapper {
-  min-height: 333px;
-  min-width: 960px;
-  padding: 0;
-  margin: 0;
-  display: flex;
-}
 .gallery{
-  width: 100%;
-  position: relative;
   display: flex;
-  flex: 1;
-  overflow: hidden;
-  border: 1px solid var(--cyan);
-  border-radius: 3px;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 7em;
 }
 .cards{
-  background-color: var(--background-color);
   padding: 1rem;
-  display:flex;
-  position: relative;
   }
-#card{
-  flex: 1 0 31%;
+.card{
   display: flex;
-  justify-content: space-between;
   flex-direction: column;
   align-items: flex-start;
   border-radius: 6px;
-  background-color: var(--background-color-ligther);
   transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
-  padding: 20px;
-  margin: 0 8px;
+  padding: 13px;
+  margin-bottom: 1.785rem;
 }
-#card:hover{
-  transform: translateY(-7px);
-}
-  .card-header{
-    width: 100%;
-    display: flex;
-    -webkit-box-pack: justify;
-    justify-content: space-between;
-    -webkit-box-align: center;
-    align-items: center;
-    margin-bottom: 15px;
-  }
-  .folder{
-    color: var(--blue);
-  }
-  .project-link a{
-    color: var(--blue-muted);
-  }
-  h3{
-    margin: 0px 0px 10px;
-    color: var(--blue-bright);
-    font-size: var(--f-xxl);
-    font-weight: 600;
-    line-height: 1.1;
-  }
-  p{
-    color: var(--blue-dim);
-    font-size: 17px;
-    font-family: var(--font-sans);
-  }
-  .projects-langs{
-    display: flex;
-    align-items: flex-end;
-    -webkit-box-flex: 1;
-    flex-grow: 1;
-    flex-wrap: wrap;
-    padding: 0px;
-    margin: 20px 0px 0px;
-    list-style: none;
-  }
-  .card-footer li{
-    font-family: var(--font-mono);
-    font-size: var(--f-medium);
-    color: var(--blue-muted);
-    line-height: 1.75;
-    margin: 0 15px;
-  } 
-/* Next & previous buttons */
-.prev, .next {
+.card:hover{
+  background: rgba(143, 189, 248, 0.16);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(6.2px);
+  -webkit-backdrop-filter: blur(6.2px);
   cursor: pointer;
-  position: absolute;
-  top: 45%;
-  width: auto;
-  margin-top: -22px;
-  padding: 16px;
+}
+.card a{
+  margin: 0 17px;
   color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
+  transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
 }
-
-/* Position the "next button" to the right */
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
+.card:hover a{
+  translate: 0 -4px;
+}.card-header{
+  width: 100%;
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: flex-start;
+  -webkit-box-align: center;
+  align-items: center;
 }
-
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-  color: var(--blue-dark);
+.project-desc{
+  margin: 19px 0;
 }
-
-.prog-bar{
-  display: block;
-  position: absolute;
-  bottom: 0;
-  border-radius: 20px;
-  background-color: var(--blue);
-  height: 4px;
-  margin: 4px 1.5rem;
+.projects-langs{
+  display: flex;
+  align-items: flex-end;
+  -webkit-box-flex: 1;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  padding: 0px;
+  list-style: none;
+}
+.card-footer li{
+  font-family: var(--font-mono);
+  font-size: var(--f-medium);
+  color: var(--blue-muted);
+  line-height: 1.75;
+  margin: 0 15px;
+} 
+span{
+  margin: 0 17px;
+  color: var(--color-text);
+}
+.show-more{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: none;
+  border: none;
+  color: var(--cyan);
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 768px) {
-  .prev, .next{
-    display: none;
-  }
-  .wrapper{
-    min-width: 100%;
-  }
   .cards{
     flex-direction: column;
   }
   #card{
     flex: 0;
     margin: 20px;
-  }
-  .prog-bar{
-    display: none;
   }
 }
 </style>

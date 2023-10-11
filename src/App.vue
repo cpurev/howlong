@@ -1,169 +1,153 @@
 <script setup>
-import { onMounted, nextTick } from 'vue'
+import { onMounted, onBeforeUnmount, ref } from 'vue'
 
-import ShakeButton from './components/ShakeButton.vue'
 import Projects from './components/Projects.vue'
 import Nav from './components/Nav.vue'
 
-onMounted(async () => {
-  await nextTick();
-  document.documentElement.scrollTop = 0;
-  if(location.hash)  gsap.to(window, {duration: 2, scrollTo: document.querySelector(location.hash)})
+const el = ref(null);
+const nl = ref(null);
 
-  gsap.fromTo(".contact", { opacity: 0}, {
-      ease:'power1.inOut',
-      opacity: 1,
-      delay: 1,
-      scrollTrigger: {
-        trigger: ".contact",
-        start: "100px 90%",
-        end: "160px center",
-        scrub: true
-      }
-    });
+const observer = new IntersectionObserver((entries, observer) => {
+  //console.log(entries)
+});
 
-  gsap.fromTo(".projects li", { opacity: 0, y:100}, {
-    ease:'power1.inOut',
-    opacity: 1,
-    y: 0,
-    stagger: 0.3,
-    scrollTrigger: {
-      trigger: ".projects",
-      start: "100px 90%",
-      end: "center center",
-      scrub: true
-    }
-  });
 
-  gsap.fromTo(".about-me", {opacity: 0, x:-60},{
-    ease:'power1.inOut',
-    opacity: 1,
-    x: 0,
-    scrollTrigger: {
-      trigger: ".profile",
-      start: "150px 90%",
-      end: "center center",
-      scrub: true
+function handleScroll(){
+  const sections = el.value.querySelectorAll('section')
+  let current = '';
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.clientHeight;
+    if (scrollY >= (sectionTop - sectionHeight / 3)) {
+      current = section.getAttribute('id');
     }
-  });
-  
-  gsap.fromTo(".about-pic", {opacity: 0, x:60},{
-    ease:'power1.inOut',
-    opacity: 1,
-    x: 0,
-    scrollTrigger: {
-      trigger: ".profile",
-      start: "150px 90%",
-      end: "center center",
-      scrub: true
+  })
+  const navLi = nl.value
+  navLi.forEach(function (li, ix) {
+    li.classList.remove('active')
+    if(li.classList.contains(`nav${current}`)){
+      li.classList.add('active')
     }
-  });
+  })
+}
+
+onMounted(() =>{
+
+  observer.observe(el.value)
+  nl.value = document.querySelectorAll('nav ul li')
+  window.addEventListener('scroll', handleScroll);
 })
+onBeforeUnmount(() =>{
+  window.removeEventListener('scroll', handleScroll);
+  observer.disconnect()
+})
+
 </script>
 
 <template>  
-  <Nav :menu="['about', 'projects', 'contact']"/>
+  <Nav />
   <main>
-    <div class="wrapper">
-    <section class="hero">
-    <Transition appear
-      name="fade-up">
-        <div>
-          <h1>Hi, my name is</h1>
-        </div>
-    </Transition>
-    <Transition appear
-      name="fade-up">
-        <div>
-          <h2>Chuluunbat Purev.</h2>
-        </div>
-    </Transition>
-    <Transition appear
-      name="fade-up">
-        <div>
-          <h3>I'm a software developer</h3>
-        </div>
-    </Transition>
-    <Transition appear
-      name="fade-up">
-        <div>
-          <p>Most versed in Full-stack Web Development and aiming to branch out to AI and Systems. Currently, I'm learning GO.</p>
-        </div>
-    </Transition>
-      </section>
-    <section id="about">
-        <div class="profile" >
-            <h2>{ About Me }</h2>
-            <div class="inner-profile">
-            <div class="about-me">
-              <p>Hello! My name is Chuluunbat and I'm from Mongolia. 
-                Growing up, computers were an integral part of my life. From playing video games all day to working at my dad's <a href="https://en.wikipedia.org/wiki/PC_bang" aria-label="Wikipedia link" target="_blank" rel="noreferrer">internet cafe</a>.
-                 I eventually got a lot of passion for computers and was fascinated by the endless possibilities they offered.</p>
-              <p>Fast-forward to today, and I recently obtained my Computer Science degree, where I gained expertise in various fields of Computer Science.
-                Throughout my time in university, 
-                I enjoyed working with people, coding, and developing software that is widely used. I aspire to continue this pursuit for the rest of my life.
-              </p>
-              <p>Outside of work and school, I enjoy playing competitive video games, hitting the gym and listening to music. </p>
-              <p>These are fields in IT that I have some experience in:</p>
-            <ul class="interests">
-              <li>Cloud Computing</li>
-              <li>DevOps</li>
-              <li>Systems Engineer</li>
-              <li>Full-stack Web Development</li>
-              <li>Machine learning</li>
-              <li>Mobile Development</li>
-            </ul>
-            </div>
-            <div class="about-pic">
-              <div class="img-wrapper">
-                <img width="300" height="300" decoding="async" src="./assets/images/headshot_1.jpg" alt="Headshot">
-              </div>
-            </div>
+    <div class="wrapper" ref="el" >
+      <section id="0" class="about panel"  >
+          <div class="nameF">
+            <h1>Chuluunbat Purev</h1>
+            <h2>Software Developer</h2>
           </div>
+          <div class="profile" >
+            <div class="sub-header"><h2>ABOUT</h2></div>
+            <p>
+              One of my earliest memories is playing Zuma and COD: World At War in an <a href="https://en.wikipedia.org/wiki/PC_bang" aria-label="Wikipedia link" target="_blank" rel="noreferrer">internet cafe</a>
+              my dad owned when I was little. As long as I remember I was fascinated by the endless possibilities computers offered.
+              I knew that I wanted to create software that is part of lots of peoples lives.
+            </p>
+            <p> 
+              These days I've been working as a <strong>Software Developer</strong> at a local goverment, creating full-stack web applications using Azure and Node. 
+              While also looking for Master's programme in Machine Learning.
+              In my free time I make sites that I think I'll learn the most from, just intresting and cool or I have a need for it (like this).
+            </p>
+            <p>
+              If I'm not sitting at my desk either working or playing games, 
+              I'm at a gym rock climbing or out on some adventure.
+            </p>
+            <a target="_blank" rel="noopener noreferrer" href="https://drive.google.com/file/d/1p_oI140qzwjDMW-zNRVfYdI1e23R6yKA/view?usp=sharing">View Resume <font-awesome-icon icon="fa-solid fa-arrow-right"/></a>
+          </div>
+      </section>
+      <div id="experience" class="divider"></div>
+      <section id="1" class="panel">
+        <div class="experience" >
+            <div class="sub-header"><h2>EXPERIENCE</h2></div>
+            <ol>
+              <li class="tile">
+                <div>
+                  <header>2023 - PRESENT</header>
+                  <div>
+                    <h3>
+                      <div class="title">
+                        Software Developer
+                        <span><font-awesome-icon icon="fa-solid fa-link" size="sm" /></span>
+                      </div>
+                      <div class="company">Fairbanks North Star Borough</div>
+                    </h3>
+                    <p>Deliver high-quality reliable software solutions to the borough goverment with diverse array of projects such as python script automation, full stack web development and API integration to existing systems. 
+                      Provide leadership and self starter within Information Integration department through collabration, code base ownership/maintainer and knowledge shares.
+                    </p>
+                    <ul class="pill-list">
+                      <li><div class="pill">Azure</div></li>
+                      <li><div class="pill">Vue</div></li>
+                      <li><div class="pill">JavaScript</div></li>
+                      <li><div class="pill">TypeScript</div></li>
+                      <li><div class="pill">Python</div></li>
+                      <li><div class="pill">C#</div></li>
+                      <li><div class="pill">GO</div></li>
+                      <li><div class="pill">HTML/CSS</div></li>
+                    </ul>
+                    </div>
+                </div>
+              </li>
+              <li class="tile">
+                <div>
+                  <header>2021 - 2023</header>
+                  <div>
+                    <h3>
+                      <div class="title">Student Systems Engineer
+                        <span><font-awesome-icon icon="fa-solid fa-link" size="sm" /></span>
+                      </div>
+                      <div class="company">University of Alaska</div>
+                    </h3>
+                    <p>Collabrated with student employees, other department staff and full time systems engineer/web developers to create full-stack web service applications.
+                      Worked on resolving tickets, mentoring users on CMS, making school webpages more accessible, and create CI/CD pipeline on various projects.
+                    </p>
+                    <ul class="pill-list">
+                      <li><div class="pill">React</div></li>
+                      <li><div class="pill">Vue</div></li>
+                      <li><div class="pill">JavaScript</div></li>
+                      <li><div class="pill">TypeScript</div></li>
+                      <li><div class="pill">Python</div></li>
+                      <li><div class="pill">Ruby</div></li>
+                      <li><div class="pill">HTML/CSS</div></li>
+                      <li><div class="pill">PHP</div></li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+            </ol>
         </div>
-    </section>
-    <section id="projects">
-      <div class="projects" >
-          <h2>{ Things I Have Worked on }</h2>
-          <div class="card">
-            <p> Some noteworthy projects</p>
+      </section>
+      <div id="projects" class="divider"></div>
+      <section id="2" class="panel">
+        <div class="projects" >
+            <div class="sub-header"><h2>PROJECTS</h2></div>
             <Projects />
           </div>
-        </div>
-    </section>
-    <section id="contact">
-      <div class="contact" >
-            <h2>{ Get In Touch }</h2>
-            <p>Feel free to contact me via email or linkedin.
-              I am always excited to explore new opportunities and work on exciting big projects.
-            </p>
-            <div class='email-link'>
-            <ShakeButton text="puluunbat@gmail.com" link="mailto:puluunbat@gmail.com"/>
-            </div>
-        </div>
-    </section>
+      </section>
     </div>
   </main>
   <footer>
-    <div class="contact-links">
-      <ul>
-          <li title="Resume">
-            <a href="https://drive.google.com/file/d/1p_oI140qzwjDMW-zNRVfYdI1e23R6yKA/view?usp=sharing" aria-label="Resume" target="_blank" rel="noreferrer"><font-awesome-icon icon="fa-regular fa-file" /></a>
-          </li>
-          <li title="Email">
-            <a href="mailto:puluunbat@gmail.com" aria-label="Email" target="_blank" rel="noreferrer"><font-awesome-icon icon="fa-regular fa-envelope" /></a>
-          </li>
-          <li title="Linkedin">
-            <a href="https://www.linkedin.com/in/chuluunbat-purev/" aria-label="Linkedin" target="_blank" rel="noreferrer"><font-awesome-icon icon="fa-brands fa-linkedin-in" /></a>
-          </li>
-          <li title="GitHub">
-            <a href="https://github.com/cpurev" aria-label="GitHub" target="_blank" rel="noreferrer"><font-awesome-icon icon="fa-brands fa-github" /></a>
-          </li>
-        </ul>
-      </div>
+    <div class="footer-contents">
       <div>
         <p>© 2023, Built by Chuluunbat Purev, Inspiration from   <a href="https://brittanychiang.com/" target="_blank" rel="noreferrer">Brittany Chiang</a></p>
       </div>
+    </div>
   </footer>
 </template>
 <style>
