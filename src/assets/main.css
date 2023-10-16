@@ -25,6 +25,7 @@ main{
   color: #fff; 
   background-size: cover;
   background-repeat: no-repeat;
+  height: 440px;
 }
 .nameF{
   display: none;
@@ -51,6 +52,7 @@ main{
   margin-bottom: 2rem;
   transition: var(--transition);
 }
+
 .experience ol{
   max-width: 888px;
 }
@@ -84,15 +86,23 @@ main{
   margin-bottom: 7rem;
   cursor: pointer;
 }
+.tile a{
+  text-decoration: none;
+  color: white;
+}
 .company{
   font-size: var(--f-medium);
+}
+.arrow svg{
+  color: var(--blue);
+  margin-left: 0.65rem;
 }
 .experience ol{
   list-style: none;
   padding: 0;
 }
 .experience li:hover{
-  background: rgba(255,255,255, 0.05);
+  background: rgba(145,145,145, 0.05);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(7.8px);
@@ -135,6 +145,16 @@ main{
   padding: 5px;
   color: var(--blue-bright);
   font-size: var(--f-small);
+}
+.proj{
+  background-color:var(--background-color);
+  background-image:
+  radial-gradient(white, rgba(145,145,145,.2) 2px, transparent 40px),
+  radial-gradient(white, rgba(145,145,145,.15) 1px, transparent 30px),
+  radial-gradient(white, rgba(145,145,145,.1) 2px, transparent 40px),
+  radial-gradient(rgba(145,145,145,.4), rgba(145,145,145,.1) 2px, transparent 30px);
+  background-size: 500px 500px, 350px 350px, 250px 250px, 200px 150px;
+  background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
 }
 .projects{
   max-width: 888px;

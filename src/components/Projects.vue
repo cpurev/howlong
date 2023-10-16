@@ -3,7 +3,7 @@ import { onMounted, ref, nextTick } from 'vue'
 const items =[
   {name:'Tube Man', description:'Simple page that simulates inflatable tube men', languages:['GO', 'Vue3', ], link:'@'},
   {name:'UA Scholars', description:'Web service for Alaskan highschool delegators to submit their students for scholarship opportunities in University of Alaska', languages:['TypeScript', 'Vue2', 'Fastify', 'Prisma'], link:'@'},
-  {name:'Playlist Analyzer', description:'A single page web app that uses Spotify API which let\'s users see the song data and overall playlist data', languages:['React', 'Express', 'Firebase', 'Tailwind'], link:'@'},
+  {name:'Playlist Analyzer', description:'A single page web app that uses Spotify API which let\'s users see the song data and overall playlist data', languages:['TypeScript', 'React', 'NextJS','Tailwind'], link:'@'},
   {name:'Portfolio', description:'Portfolio website created from scratch with Vue3 and Greensock javascript animation library', languages:['Vue3', 'Greensock'], link:'/'},
   {name:'Fletnix', description:'A mock up streaming service site with user authentication and roles', languages:['NextJS', 'MongoDB'], link:'https://fletnix.vercel.app/'},
   {name:'Our Winter World', description:'Created WordPress plugin for snow educational activities', languages:['React', 'WordPress', 'PHP'], link:'http://ourwinterworld.org/'}
@@ -54,7 +54,6 @@ const itemsToShow = ref(3)
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 7em;
 }
 .cards{
   padding: 1rem;

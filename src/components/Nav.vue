@@ -57,18 +57,18 @@ ul{
 a{
   color: white;
 }
-nav{
+nav ul{
   display: none;
+}
+nav ul .active{
+  font-size: 26px;
+  color: var(--blue);
 }
 .nav-bar{
   display: flex;
   justify-content: space-between;
   flex-direction: column-reverse;
   line-height: 1.5;
-}
-.active{
-  font-size: 30px;
-  
 }
 @media only screen and (min-width: 940px) {
   header{
@@ -80,11 +80,21 @@ nav{
   .name{
     display: none;
   }
-  nav{
-    display: block;
+  nav ul{
+    display: flex;
+    flex-direction: row;
+    
   }
   nav li{
     margin: 0 1rem;
+
+    color: white;
+    font-size: 16px;
+
+    -webkit-transition: all 1s;
+        -moz-transition: all 1s;
+          -o-transition: all 1s;
+              transition: all 1s;
   }
   nav li a{
   text-decoration: none;
