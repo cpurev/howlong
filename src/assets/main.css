@@ -27,6 +27,10 @@ main{
   background-repeat: no-repeat;
   height: 440px;
 }
+.divider{
+  width: 100%;
+  height: 200px;
+}
 .nameF{
   display: none;
   margin-right: 70px;
@@ -176,7 +180,7 @@ footer a, footer p{
     margin-bottom: 6rem;
   }
   .divider{
-    margin: 160px 0;
+    display: none;
   }
   .sub-header{
     display: none;

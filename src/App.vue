@@ -145,7 +145,6 @@ onBeforeUnmount(() =>{
           </div>
         </Transition>
       </section>
-      <div id="projects" class="divider"></div>
       <section id="2" class="proj panel">
         <div class="projects" >
             <div class="sub-header"><h2>PROJECTS</h2></div>

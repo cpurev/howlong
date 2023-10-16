@@ -91,10 +91,10 @@ nav ul .active{
     color: white;
     font-size: 16px;
 
-    -webkit-transition: all 1s;
-        -moz-transition: all 1s;
-          -o-transition: all 1s;
-              transition: all 1s;
+    -webkit-transition: all 0.5;
+        -moz-transition: all 0.5;
+          -o-transition: all 0.5;
+              transition: all 0.5;
   }
   nav li a{
   text-decoration: none;
