@@ -121,8 +121,12 @@ span{
   border: none;
   color: var(--cyan);
   cursor: pointer;
+  padding: 6px;
 }
-
+.show-more:hover{
+  border-radius: 11px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.25);
+}
 @media only screen and (max-width: 768px) {
   .cards{
     flex-direction: column;

@@ -85,16 +85,16 @@ nav ul .active{
     flex-direction: row;
     
   }
-  nav li{
+  nav ul li{
     margin: 0 1rem;
 
     color: white;
     font-size: 16px;
 
-    -webkit-transition: all 0.5;
-        -moz-transition: all 0.5;
-          -o-transition: all 0.5;
-              transition: all 0.5;
+    -webkit-transition: all 0.5s;
+        -moz-transition: all 0.5s;
+          -o-transition: all 0.5s;
+              transition: all 0.5s;
   }
   nav li a{
   text-decoration: none;
