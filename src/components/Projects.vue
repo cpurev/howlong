@@ -5,8 +5,8 @@ const items =[
   {img: "scholars_proj.png", name:'UA Scholars', description:'Web service for Alaskan highschool delegators to submit their students for scholarship opportunities in University of Alaska', languages:['TypeScript', 'Vue2', 'Fastify', 'Prisma'], link:'https://www.alaska.edu/scholars/'},
   {img: "spotify_proj.png", name:'Playlist Analyzer', description:'A single page web app that uses Spotify API which let\'s users see the song data and overall playlist data', languages:['TypeScript', 'React', 'NextJS','Tailwind'], link:'@'},
   {img: "prot_proj.png", name:'Portfolio', description:'Portfolio website created from scratch with Vue3 and Greensock javascript animation library', languages:['Vue3', 'Greensock'], link:'/'},
-  {img: "fletnix_proj.png", name:'Fletnix', description:'A mock up streaming service site that has streams videos with user authentication and roles', languages:['React', 'NextJS', 'MongoDB', 'Tailwind'], link:'https://fletnix.vercel.app/'},
-  {img: "oww_proj.png", name:'Our Winter World', description:'Created WordPress plugin for snow educational activities', languages:['React', 'WordPress', 'PHP'], link:'http://ourwinterworld.org/'}
+  {img: "fletnix_proj.png", name:'Fletnix', description:'Fully functional mock up streaming site with user authentication and roles', languages:['React', 'NextJS', 'MongoDB', 'Tailwind'], link:'https://fletnix.vercel.app/'},
+  {img: "oww_proj.png", name:'Our Winter World', description:'A WordPress plugin for snow educational activities', languages:['React', 'WordPress', 'PHP'], link:'http://ourwinterworld.org/'}
 ]
 const itemsToShow = ref(3)
 
@@ -25,12 +25,15 @@ const itemsToShow = ref(3)
         </div>
         <div class="card">
           <div class="card-header">
-              <h3 class="project-title"> {{ items[index].name }} </h3>
-              <a v-if="items[index].link != '@'" :href="items[index].link" :aria-label="items[index].name" 
-                  target="_blank" rel="noreferrer" >
+            <a v-if="items[index].link != '@'" :href="items[index].link" :aria-label="items[index].name" 
+                  target="_blank" rel="noreferrer" class="header-group">
+                <h3 class="project-title"> {{ items[index].name }} </h3>
                 <font-awesome-icon icon="fa-solid fa-arrow-up-right-from-square" size="sm" />
-              </a>
-              <span v-else>WIP</span>
+            </a>
+            <div class="header-group" v-else>
+              <h3 class="project-title"> {{ items[index].name }} </h3>
+              <span>WIP</span>
+              </div>
           </div>
           <div class="card-content">
             <div class="project-desc"><p>{{ items[index].description }}</p></div>
@@ -59,6 +62,7 @@ const itemsToShow = ref(3)
   flex-direction: column;
   align-items: center;
 }
+
 .cards{
   padding: 1rem;
   }
@@ -75,7 +79,6 @@ li:hover{
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(6.2px);
   -webkit-backdrop-filter: blur(6.2px);
-  cursor: pointer;
 }
 li:hover .card-img{
   filter: grayscale(0%)
@@ -89,21 +92,15 @@ li:hover .card-img img{
   align-items: flex-start;
   margin-left: 2rem;
 }
-.card a{
+.header-group{
+  display: flex;
   margin: 0 17px;
   color: white;
-  transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
+  text-decoration: none;
 }
-.card:hover a{
+.card:hover svg{
   translate: 0 -4px;
-}
-.card-header{
-  width: 100%;
-  display: flex;
-  -webkit-box-pack: justify;
-  justify-content: flex-start;
-  -webkit-box-align: center;
-  align-items: center;
+  transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
 }
 .card-img{
   width: 120px;
@@ -135,10 +132,11 @@ li:hover .card-img img{
   color: var(--blue-muted);
   line-height: 1.75;
   margin: 0 15px;
+  padding: 5px;
 } 
-span{
+span, svg{
   margin: 0 17px;
-  color: var(--color-text);
+  color: var(--blue);
 }
 .show-more{
   display: flex;
