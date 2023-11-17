@@ -68,11 +68,11 @@ onBeforeUnmount(() =>{
             <p id="typewriter2">
               I'm a software developer specializing in building (and occasionally designing) exceptional websites, applications, and everything in between.
               Currently, I'm a Software Developer where I work on a wide variety of interesting and meaningful projects on a daily basis.
-              I'm currently focusing on learning more about Azure, GO, and Machine Learning.
+              I'm currently focused on learning more about Azure, GO, and Machine Learning.
               </p>
             <p id="typewriter3">
               When I'm not sitting at my desk either working or playing games, 
-              I'm at a gym rock climbing or out on some adventure.
+              I'm either rock climbing or out on some adventure.
             </p>
             <p class="arrow">
               <a target="_blank" rel="noopener noreferrer" id="typewriter4" href="https://drive.google.com/file/d/1p_oI140qzwjDMW-zNRVfYdI1e23R6yKA/view?usp=sharing"></a>

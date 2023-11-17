@@ -1,9 +1,9 @@
 <script setup>
 import { onMounted, ref, nextTick } from 'vue'
 const items =[
-  {img: "red.jpg", name:'Tube Man', description:'Simple page that simulates inflatable tube men', languages:['GO', 'Vue3', ], link:'@'},
+  {img: "golang.png", name:'A GO project', description:'A webservice written in completely in GO with html templating', languages:['GO'], link:'@'},
   {img: "scholars_proj.png", name:'UA Scholars', description:'Web service for Alaskan highschool delegators to submit their students for scholarship opportunities in University of Alaska', languages:['TypeScript', 'Vue2', 'Fastify', 'Prisma'], link:'https://www.alaska.edu/scholars/'},
-  {img: "spotify_proj.png", name:'Playlist Analyzer', description:'A single page web app that uses Spotify API which let\'s users see the song data and overall playlist data', languages:['TypeScript', 'React', 'NextJS','Tailwind'], link:'@'},
+  {img: "spotify_proj.png", name:'Spotify Big Picture Player', description:'A spotify playback single page application that provides better art and audio visualization of track.', languages:['TypeScript', 'React', 'NextJS','Tailwind'], link:'@'},
   {img: "prot_proj.png", name:'Portfolio', description:'Portfolio website created from scratch with Vue3 and Greensock javascript animation library', languages:['Vue3', 'Greensock'], link:'/'},
   {img: "fletnix_proj.png", name:'Fletnix', description:'Fully functional mock up streaming site with user authentication and roles', languages:['React', 'NextJS', 'MongoDB', 'Tailwind'], link:'https://fletnix.vercel.app/'},
   {img: "oww_proj.png", name:'Our Winter World', description:'A WordPress plugin for snow educational activities', languages:['React', 'WordPress', 'PHP'], link:'http://ourwinterworld.org/'}
