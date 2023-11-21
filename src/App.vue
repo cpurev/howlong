@@ -67,7 +67,7 @@ onBeforeUnmount(() =>{
             </p>
             <p id="typewriter2">
               I'm a software developer specializing in building (and occasionally designing) exceptional websites, applications, and everything in between.
-              Currently, I'm a Software Developer where I work on a wide variety of interesting and meaningful projects on a daily basis.
+              Currently, I work on a wide variety of interesting and meaningful projects on a daily basis.
               I'm currently focused on learning more about Azure, GO, and Machine Learning.
               </p>
             <p id="typewriter3">
