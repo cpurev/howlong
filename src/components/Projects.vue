@@ -66,6 +66,7 @@ const itemsToShow = ref(3)
 .cards{
   padding: 1rem;
   }
+
 li{
   display: flex;
   border-radius: 6px;
@@ -159,6 +160,19 @@ span, svg{
   #card{
     flex: 0;
     margin: 20px;
+  }
+  .card-img{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  li{
+    flex-direction: column;
+  }
+  .card-content{
+    width: 100%;
   }
 }
 </style>
