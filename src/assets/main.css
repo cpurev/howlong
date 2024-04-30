@@ -1,17 +1,18 @@
 @import './base.css';
 
 #app{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: #DEDEDE;
-  padding: 17px;
+  width: 100vw;
+  height: 100vh;
+  padding: 0 10px;
 }
 
-main{
-  max-width: 1280px;
-  position: relative;
-  margin: auto;
+.wrapper, .main{
+  width: 100%;
+  height: 90vh;
+}
+.wrapper{
+  
+  min-height: 100%;
 }
 .panel{
   max-width: 960px;
@@ -27,129 +28,7 @@ main{
   background-repeat: no-repeat;
   height: 440px;
 }
-.divider{
-  width: 100%;
-  height: 200px;
-}
-.nameF{
-  display: none;
-  margin-right: 70px;
-}
-.nameF h1{
-  font-weight: 900;
-  font-size: xx-large;
-}
-.nameF h2{
-  font-size: var(--f-large);
-}
-.sub-header{
-  position: sticky;
-  z-index: 999;
-  position: -webkit-sticky;
-  display: flex;
-  font-weight: 900;
-  padding: 0.5rem;
-  font-size: .875rem;
-  line-height: 1.25rem;
-  top: 1px;
-  color: white;
-  margin-bottom: 2rem;
-  transition: var(--transition);
-}
 
-.experience ol{
-  max-width: 888px;
-}
-.profile p{
-  margin: 27px 0;
-}
-
-.profile a{
-  backdrop-filter: none;
-  display: inline-block;
-  text-decoration: none;
-  color: var(--blue);
-  position: relative;
-  cursor:pointer;
-}
-.profile a::after {
-  content: "";
-  display: block;
-  width: 0px;
-  height: 1px;
-  position: relative;
-  bottom: 0.2em;
-  background-color: var(--cyan);
-  transition: var(--transition);
-}
-.profile a:hover::after {
-  width: 100%;
-}
-.tile{
-  padding: 17px;
-  margin-bottom: 7rem;
-  cursor: pointer;
-}
-.tile a{
-  text-decoration: none;
-  color: white;
-}
-.company{
-  font-size: var(--f-medium);
-}
-.arrow svg{
-  color: var(--blue);
-  margin-left: 0.65rem;
-}
-.experience ol{
-  list-style: none;
-  padding: 0;
-}
-.experience li:hover{
-  background: rgba(145,145,145, 0.05);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(7.8px);
-  -webkit-backdrop-filter: blur(7.8px);
-}
-
-.experience li:hover .title{
-  color: var(--blue);
-}
-.experience li span{
-  display: inline-block;
-  transition: all 0.35s cubic-bezier(0.645,0.045,0.355,1);
-}
-.experience li:hover span{
-  translate: 3px 0;
-}
-.experience p{
-  margin: 29px 0;
-}
-.experience header{
-  font-weight: 400;
-  font-size: 0.75rem;
-  margin: 7px 0;
-}
-.experience h3 .title{
-  font-weight: 600;
-}
-.pill-list{
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-  padding: 0;
-}
-.pill-list li{
-  margin: 7px 17px 0 0;
-}
-.pill{
-  background-color: var(--blue-dim);
-  border-radius: 7px;
-  padding: 5px;
-  color: var(--blue-bright);
-  font-size: var(--f-small);
-}
 .proj{
   background-color:var(--background-color);
   background-image:
@@ -166,30 +45,12 @@ main{
 }
 footer{
   display: flex;
-  text-align: center;
+  justify-content: center;
 }
 footer a, footer p{
   font-size: var(--f-small);
-  color: var(--blue)
+  color: gray
 }
 @media only screen and (min-width: 940px) {
-  .nameF{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 6rem;
-  }
-  .divider{
-    display: none;
-  }
-  .sub-header{
-    display: none;
-  }
-  .profile{
-    width: 60%;
-  }
-  .footer-contents {
-    width: 1000px; 
-  }
+  
 }

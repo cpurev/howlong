@@ -39,20 +39,5 @@
 
 body {
   font-family: var(--font-mono);
-  position: relative;
-  background-image: linear-gradient(to bottom right, 
-      var(--background-color-primary),#081D22,#13434F);
 }
 
-body::-webkit-scrollbar-thumb {
-  background-color: var(--blue-dim);
-  border: 3px solid var(--background-color-primary);
-  border-radius: 10px;
-}
-
-body::-webkit-scrollbar {
-  width: 12px;
-}
-body::-webkit-scrollbar-track {
-  background: var(--background-color-primary);
-}
