@@ -31,18 +31,15 @@ onMounted(() =>{
             When I'm not sitting at my desk either working or playing games, 
             I'm either rock climbing or out on some adventure.
             </p>
-            <p class="arrow">
-            <a target="_blank" rel="noopener noreferrer" id="typewriter4" href="https://drive.google.com/file/d/1p_oI140qzwjDMW-zNRVfYdI1e23R6yKA/view?usp=sharing"></a>
-            <Transition name="fade-in" appear>
-                <font-awesome-icon icon="fa-solid fa-arrow-right"/> 
-            </Transition>
-            </p>
         </div>
     </div>
 </template>
 
   
 <style scoped>
+.profile{
+  color: white;
+}
 .nameF{
   display: none;
   margin-right: 70px;
@@ -62,9 +59,9 @@ onMounted(() =>{
   backdrop-filter: none;
   display: inline-block;
   text-decoration: none;
-  color: var(--blue);
   position: relative;
   cursor:pointer;
+  color: var(--green);
 }
 .profile a::after {
   content: "";
@@ -79,10 +76,7 @@ onMounted(() =>{
 .profile a:hover::after {
   width: 100%;
 }
-.arrow svg{
-  color: var(--blue);
-  margin-left: 0.65rem;
-}
+
 @media only screen and (min-width: 940px) {
   .nameF{
     display: flex;

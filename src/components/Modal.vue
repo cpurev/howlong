@@ -1,53 +1,54 @@
 <template>
-    <button @click="showModal = true">Open Modal</button>
-  
-    <div v-if="showModal" class="modal">
-      <div class="modal-content">
-        <span class="close" @click="showModal = false">×</span>
-        <YourComponent />
+  <div v-if="isOpen" class="modal-mask">
+    <div class="modal-wrapper">
+      <font-awesome-icon icon = 'fa-regular fa-times-rectangle fa-10x' class="close-icon"/>
+      <div class="modal-container" ref="target">
+        <slot></slot>
       </div>
     </div>
-  </template>
+  </div>
+</template>
   
-  <script setup>
-  import { ref } from 'vue'
-  import YourComponent from './YourComponent.vue'
+<script setup>
+  import { onMounted, ref } from 'vue'
+  import { onClickOutside } from '@vueuse/core'
+
+  const props = defineProps({
+    isOpen: Boolean,
+  });
+
+
+  const emit = defineEmits(["modal-close"]);
+
+  const target = ref(null)
+  onClickOutside(target, ()=>emit('modal-close'))
+</script>
   
-  const showModal = ref(false)
-  </script>
-  
-  <style scoped>
-  .modal {
+<style scoped>
+.modal-mask{
     position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.4);
-  }
-  
-  .modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-  }
-  
-  .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-  }
-  </style>
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+}
+.modal-wrapper {
+  width: 100%;
+  border: 2px solid #000;
+  border-radius: 17px;
+  padding: 7px;
+  background-color: var(--blue-dark);
+  z-index: 999;
+}
+
+
+.close-button {
+  margin-right: auto;
+  background-color: #f00;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+</style>
   

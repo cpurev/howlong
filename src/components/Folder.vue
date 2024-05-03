@@ -4,7 +4,6 @@ import { onMounted, defineProps, computed } from 'vue'
 const props = defineProps({
     folderName: String,
     iconImg: String,
-    link: String,
     color: String,
     x: Number,
     y: Number
@@ -12,12 +11,6 @@ const props = defineProps({
 })
 
 const iconClass = computed(() => 'fa-regular ' + props.iconImg + ' fa-10x')
-
-const handleClick = (event) => {
-  if (props.link.startsWith('http://') || props.link.startsWith('https://')) {
-    event.preventDefault()
-  }
-}
 
 onMounted(() =>{
     gsap.registerPlugin(Draggable);
@@ -30,10 +23,8 @@ onMounted(() =>{
 
 <template>
     <div id="folder" :style="{ left: x + 'px', bottom: y + 'px', color: color  }">
-        <a :href="link" target="_blank" rel="noopener noreferrer" @click="handleClick">
-            <font-awesome-icon :icon = iconClass class="folder-icon"/>
-            <div class="folder-name">{{ folderName }}</div>
-        </a>
+      <font-awesome-icon :icon = iconClass class="folder-icon"/>
+      <div class="folder-name">{{ folderName }}</div>
     </div>
 </template>
   

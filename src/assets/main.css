@@ -11,39 +11,21 @@
   height: 90vh;
 }
 .wrapper{
-  
   min-height: 100%;
 }
-.panel{
-  max-width: 960px;
-  display: flex;
-  justify-content: center;
-  margin-top: 6rem;
-}
-.about{
-  background-image: url("/Troth-Yeddha-topo-border_2766.svg");
-  filter: grayscale(100%);/* Change the hue (color) value as needed */
-  color: #fff; 
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 440px;
+.folder-wrapper{
+  position: absolute;
+  top: 50%;
+  left: 50%;
 }
 
-.proj{
-  background-color:var(--background-color);
-  background-image:
-  radial-gradient(white, rgba(145,145,145,.2) 2px, transparent 40px),
-  radial-gradient(white, rgba(145,145,145,.15) 1px, transparent 30px),
-  radial-gradient(white, rgba(145,145,145,.1) 2px, transparent 40px),
-  radial-gradient(rgba(145,145,145,.4), rgba(145,145,145,.1) 2px, transparent 30px);
-  background-size: 500px 500px, 350px 350px, 250px 250px, 200px 150px;
-  background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
-  margin-bottom: 8rem;
-}
-.projects{
-  max-width: 888px;
-}
+
 footer{
+  position: fixed;
+  left: 0;
+  bottom: 1.5rem;
+  width: 100%;
+  text-align: center;
   display: flex;
   justify-content: center;
 }
