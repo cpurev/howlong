@@ -62,13 +62,8 @@
 
 <style scoped>
 
-.experience ol{
-  max-width: 888px;
-}
-
 .tile{
   padding: 17px;
-  margin-bottom: 7rem;
   cursor: pointer;
 }
 .tile a{
@@ -102,11 +97,6 @@
 }
 .experience p{
   margin: 29px 0;
-}
-.experience header{
-  font-weight: 400;
-  font-size: 0.75rem;
-  margin: 7px 0;
 }
 .experience h3 .title{
   font-weight: 600;

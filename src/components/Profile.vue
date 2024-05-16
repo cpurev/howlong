@@ -1,20 +1,12 @@
 <script setup>
-import { onMounted, onBeforeUnmount, ref } from 'vue'
 
-const intro3 = "View Resume " 
-
-onMounted(() =>{
-  gsap.to("#typewriter4", {text: {value: intro3}, duration: 2, delay: 1, ease: "none"})
-})
 </script>
 
 <template>
     <div class="profile">
         <div class="nameF">
             <h1>Chuluunbat Purev</h1>
-            <Transition name="fade" appear>
             <h2>Software Developer</h2>
-            </Transition>
         </div>
         <div class="profile" >
             <p id="typewriter1">
@@ -40,10 +32,6 @@ onMounted(() =>{
 .profile{
   color: white;
 }
-.nameF{
-  display: none;
-  margin-right: 70px;
-}
 .nameF h1{
   font-weight: 900;
   font-size: xx-large;
@@ -61,7 +49,7 @@ onMounted(() =>{
   text-decoration: none;
   position: relative;
   cursor:pointer;
-  color: var(--green);
+  color: gray;
 }
 .profile a::after {
   content: "";
@@ -78,12 +66,6 @@ onMounted(() =>{
 }
 
 @media only screen and (min-width: 940px) {
-  .nameF{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 6rem;
-  }
+  
 }
 </style>

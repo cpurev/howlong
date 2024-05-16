@@ -1,8 +1,8 @@
 <template>
-  <div v-if="isOpen" class="modal-mask">
+  <div v-if="isOpen" class="modal-mask" ref="target">
     <div class="modal-wrapper">
-      <font-awesome-icon icon = 'fa-regular fa-times-rectangle fa-10x' class="close-icon"/>
-      <div class="modal-container" ref="target">
+      <font-awesome-icon icon = 'fa-solid fa-x fa-10x' @click="handleClick" class="close-icon"/>
+      <div class="modal-container">
         <slot></slot>
       </div>
     </div>
@@ -17,7 +17,7 @@
     isOpen: Boolean,
   });
 
-
+  const handleClick = () => { emit('modal-close') }
   const emit = defineEmits(["modal-close"]);
 
   const target = ref(null)
@@ -39,15 +39,14 @@
   padding: 7px;
   background-color: var(--blue-dark);
   z-index: 999;
+  display: flex;
+  flex-direction: row-reverse;
 }
-
-
-.close-button {
-  margin-right: auto;
-  background-color: #f00;
-  color: #fff;
-  border: none;
+.close-icon{
   cursor: pointer;
+  color: white;
+  float: left;
+  padding: 7px 13px;
 }
 
 </style>

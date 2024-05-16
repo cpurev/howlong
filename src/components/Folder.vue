@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, defineProps, computed } from 'vue'
+import { onMounted, computed } from 'vue'
 
 const props = defineProps({
     folderName: String,
@@ -35,13 +35,9 @@ onMounted(() =>{
     height: 100px;
     position: absolute;
     cursor: move;
-    padding: 2px;
-  }
-  a{
     display: flex;
     flex-direction: column;
-    text-decoration: none;
-    color: inherit;
+    justify-content: space-evenly;
   }
   #folder:active{
     border: 1px dotted black;
