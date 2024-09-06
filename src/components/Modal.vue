@@ -48,6 +48,12 @@
   float: left;
   padding: 7px 13px;
 }
-
+@media only screen and (max-width: 940px) {
+  .modal-wrapper{
+    max-height: 400px;
+    max-width: 300px;
+    overflow: scroll;
+  }
+}
 </style>
   

@@ -65,7 +65,7 @@
   width: 100%;
 }
 
-@media only screen and (min-width: 940px) {
+@media only screen and (max-width: 940px) {
   
 }
 </style>
