@@ -4,7 +4,7 @@
               <ol>
                 <li class="tile">
                   <a target="_blank" rel="noopener noreferrer" href="https://www.fnsb.gov">
-                    <header>2023 - PRESENT</header>
+                    <header>2023 - 2024</header>
                     <div>
                       <h3>
                         <div class="title">
@@ -68,7 +68,7 @@
 }
 .tile a{
   text-decoration: none;
-  color: white;
+  color: black;
 }
 .company{
   font-size: var(--f-medium);

@@ -30,7 +30,7 @@
   
 <style scoped>
 .profile{
-  color: white;
+  color: black;
 }
 .nameF h1{
   font-weight: 900;

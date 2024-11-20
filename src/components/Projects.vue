@@ -43,7 +43,7 @@ const handleClick = (link) => { if(link == "@") return; window.open(link, "_blan
 
 <style scoped>
 .gallery{
-  color: white;
+  color: black;
 }
 a{
 

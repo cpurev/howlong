@@ -30,22 +30,20 @@ const closeModal = () => {
 </script>
 
 <template>  
-  <Nav />
   <main>
     <div class="wrapper" >
-      <div>
+      <Nav />
       <Modal :isOpen="isModalOpened" @modal-close="closeModal"  name="first-modal">
         <component :is="currentComponent"></component>
       </Modal>
-       </div>
        <div class="folder-wrapper">
         <a href="https://drive.google.com/file/d/1p_oI140qzwjDMW-zNRVfYdI1e23R6yKA" target="_blank" rel="noopener noreferrer">
-          <Folder folderName="Resume" link="https://drive.google.com/file/d/1p_oI140qzwjDMW-zNRVfYdI1e23R6yKA" color="red" iconImg="fa-file-pdf" :x="0" :y="-40" />
+          <Folder folderName="Resume" link="https://drive.google.com/file/d/1p_oI140qzwjDMW-zNRVfYdI1e23R6yKA" color="red" iconImg="fa-file-pdf" :x="0" :y="-160" />
         </a>
-        <Folder folderName="Profile" @click="openModal('profile')" color="green" iconImg="fa-folder-open" :x="-193" :y="162"/>
-        <Folder folderName="Experience" @click="openModal('experience')"  color="cyan" iconImg="fa-folder-open" :x="166" :y="-19"/>
-        <Folder folderName="Projects" @click="openModal('projects')"  color="gray" iconImg="fa-folder-open" :x="-30" :y="100" />
-        <Folder folderName="logs.csv" @click="openModal('logs')"  color="black" iconImg="fa-file" :x="-172" :y="0" />
+        <Folder folderName="Profile" @click="openModal('profile')" color="green" iconImg="fa-folder" :x="-223" :y="100"/>
+        <Folder folderName="Experience" @click="openModal('experience')"  color="cyan" iconImg="fa-folder" :x="126" :y="-79"/>
+        <Folder folderName="Projects" @click="openModal('projects')"  color="gray" iconImg="fa-folder" :x="-50" :y="60" />
+        <Folder folderName="logs.csv" @click="openModal('logs')"  color="black" iconImg="fa-file" :x="-202" :y="-50" />
       </div>
     </div>
   </main>

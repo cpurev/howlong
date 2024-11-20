@@ -10,7 +10,7 @@ const props = defineProps({
     
 })
 
-const iconClass = computed(() => 'fa-regular ' + props.iconImg + ' fa-10x')
+const iconClass = computed(() => 'fa-solid ' + props.iconImg + ' fa-10x')
 
 onMounted(() =>{
     gsap.registerPlugin(Draggable);

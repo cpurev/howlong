@@ -6,10 +6,9 @@ import './assets/main.css'
 /* import the fontawesome*/
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faEnvelope, faFolder, faFile, faFilePdf, faFileExcel, faFolderOpen } from '@fortawesome/free-regular-svg-icons'
-import { faArrowUpRightFromSquare, faChevronDown, faLink, faArrowRight, faX } from '@fortawesome/free-solid-svg-icons'
+import { faArrowUpRightFromSquare, faChevronDown, faLink, faArrowRight, faX, faFolder, faFile, faFilePdf } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faX, faFolderOpen, faFileExcel, faFilePdf, faEnvelope, faFile, faFolder, faArrowUpRightFromSquare, faChevronDown, faLink, faArrowRight);
+library.add(faX, faFilePdf, faFile, faFolder, faArrowUpRightFromSquare, faChevronDown, faLink, faArrowRight);
 
 createApp(App)
     .component('font-awesome-icon', FontAwesomeIcon)

@@ -3,8 +3,7 @@ import { ref, onMounted, onUnmounted } from 'vue'
 
 </script>
 <template>
-    <header>
-        <Transition name="fade-down" appear>
+    <div class="header">
             <div class="nav-bar">
               <div class="title">
                 <div class="links">
@@ -24,11 +23,10 @@ import { ref, onMounted, onUnmounted } from 'vue'
                 </div>
               </div>
             </div>
-          </Transition>
-    </header>
+        </div>
 </template>
 <style scoped>
-header{
+.header{
   width: 100%;
 }
 ul{
