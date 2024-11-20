@@ -1,5 +1,6 @@
 <script setup>
 import { onMounted, shallowRef, ref } from 'vue'
+import { Analytics } from '@vercel/analytics/vue';
 
 import Logs from './components/Logs.vue'
 import Profile from './components/Profile.vue'
@@ -30,6 +31,7 @@ const closeModal = () => {
 </script>
 
 <template>  
+  <Analytics />
   <main>
     <div class="wrapper" >
       <Nav />
