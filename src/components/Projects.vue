@@ -19,7 +19,7 @@ const handleClick = (link) => { if(link == "@") return; window.open(link, "_blan
         <th> # </th>
         <th>Name</th>
         <th>Description</th>
-        <th></th>
+        <th>Languages</th>
       </tr>
       <tr v-for="(item,index) in items" :key="item.name" :data-index="index" @click="handleClick(item.link)" :class="{active: item.link != '@'}">
         <td>{{ index + 1}}</td>
@@ -42,37 +42,5 @@ const handleClick = (link) => { if(link == "@") return; window.open(link, "_blan
 </template>
 
 <style scoped>
-.gallery{
-  color: white;
-}
-a{
 
-  color: white;
-  text-decoration: none
-}
-li{
-  list-style-type: none;
-}
-ul{
-  padding: 0;
-}
-table {
-  border-collapse: collapse;
-  width: 100%;
-}
-th, td {
-  padding: 8px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-}
-
-tr:hover {background-color: var(--blue-dim);}
-.active{
-  cursor: pointer;
-}
-.project-prog{
-  float: left;
-  margin-top: 5px;
-  color: var(--blue);
-}
 </style>

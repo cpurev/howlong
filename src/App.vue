@@ -1,59 +1,107 @@
 <script setup>
-import { onMounted, shallowRef, ref } from 'vue'
+import { onMounted, shallowRef, ref, computed } from 'vue'
 
-import Logs from './components/Logs.vue'
-import Profile from './components/Profile.vue'
-import Experience from './components/Experience.vue'
-import Projects from './components/Projects.vue'
 import Nav from './components/Nav.vue'
-import Folder from './components/Folder.vue'
-import Modal from './components/Modal.vue'
 
-const isModalOpened = shallowRef(false);
-const currentComponent = shallowRef(null);
+const beforeEnter = (el) => {
+      console.log('before enter');
+      el.style.transform = 'translateX(-50px)';
+      el.style.opacity = 0;
+    };
 
-const windows = {
-  'profile': Profile,
-  'experience': Experience,
-  'projects': Projects,
-  'logs': Logs,
-}
+    const enter = (el) => {
+      console.log('enter');
 
-const openModal = (str) => {
-  isModalOpened.value = true;
-  currentComponent.value = windows[str]
+      gsap.to(el, {
+        duration: 1,
+        opacity: 1,
+        translateX: '0vh',
+        ease: 'power1.inOut',
+      });
+    };
+
+    const beforeLeave = (el) => {
+      console.log('before leave');
+      el.style.transform = 'translateX(0vh)';
+    };
+const leave = (el, done) => {
+  console.log('leave');
+
+  gsap.to(el, {
+    duration: 1,
+    opacity: 1,
+    translateX: '50px',
+    ease: 'power1.inOut',
+    onComplete: done,
+  });
 };
-const closeModal = () => {
-  isModalOpened.value = false;
-};
-
 </script>
 
 <template>  
-  <Nav />
+<header>
+  <div class="header-wrapper">
+    <a href="#/">
+      <h1>Chuluunbat Purev  </h1> 
+    </a>
+      <h1>Software Developer  </h1> 
+    <p></p>
+    <p></p>
+    <p></p>
+  </div>
+</header>
   <main>
     <div class="wrapper" >
-      <div>
-      <Modal :isOpen="isModalOpened" @modal-close="closeModal"  name="first-modal">
-        <component :is="currentComponent"></component>
-      </Modal>
-       </div>
-       <div class="folder-wrapper">
-        <a href="https://drive.google.com/file/d/1p_oI140qzwjDMW-zNRVfYdI1e23R6yKA" target="_blank" rel="noopener noreferrer">
-          <Folder folderName="Resume" link="https://drive.google.com/file/d/1p_oI140qzwjDMW-zNRVfYdI1e23R6yKA" color="red" iconImg="fa-file-pdf" :x="0" :y="-40" />
-        </a>
-        <Folder folderName="Profile" @click="openModal('profile')" color="green" iconImg="fa-folder-open" :x="-193" :y="162"/>
-        <Folder folderName="Experience" @click="openModal('experience')"  color="cyan" iconImg="fa-folder-open" :x="166" :y="-19"/>
-        <Folder folderName="Projects" @click="openModal('projects')"  color="gray" iconImg="fa-folder-open" :x="-30" :y="100" />
-        <Folder folderName="logs.csv" @click="openModal('logs')"  color="black" iconImg="fa-file" :x="-172" :y="0" />
-      </div>
+      <Nav />
+      <transition @before-enter="beforeEnter" @enter="enter" @before-leave="beforeLeave" @leave="leave">
+        <RouterView />
+      </transition>
     </div>
   </main>
   <footer>
     <div class="footer-contents">
       <div>
-        <p>© 2024, Built by Chuluunbat Purev, Inspiration from   <a href="https://oklama.com/" target="_blank" rel="noreferrer">Oklama</a></p>
+        <p>Built by Chuluunbat Purev©2024</p>
       </div>
     </div>
   </footer>
 </template>
+
+<style scoped>
+main{
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  justify-content: center;
+  min-height: calc(100vh - 100px);
+  max-height: 100%;
+}
+a{
+  text-decoration: none;
+  color: black;
+}
+.header-wrapper{
+  display: flex;
+  justify-content: space-around;
+}
+.header-wrapper h1{
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1;
+}
+.wrapper{
+  display: flex;
+  width: 100%;
+  padding: 10px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer p{
+  font-size: 16.5px;
+  line-height: 1;
+}
+</style>
